@@ -7,10 +7,14 @@
     <link rel="stylesheet" href="style/styles.css">
 </head>
 <body>
-    <div class="page-container"> <!-- ДОБАВЬТЕ ЭТОТ КОНТЕЙНЕР -->
-        <!-- Замените id на class -->
-        <div class="header">Хэдер</div>
-        <div class="nav"> <!-- было id="menu" -->
+    <div class="page-container">
+        <!-- Используем семантический тег header -->
+        <header class="header">
+            <h1>X2App</h1>
+        </header>
+
+        <!-- Используем семантический тег nav -->
+        <nav class="nav">
             <ul class="nav-list">
                 <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
                 <li class="nav-item"><a class="nav-link" href="pages/news.html">Новости</a></li>
@@ -18,47 +22,58 @@
                 <li class="nav-item"><a class="nav-link" href="pages/goods.html">Товары</a></li>
                 <li class="nav-item"><a class="nav-link" href="pages/contacts.html">Контакты</a></li>
             </ul>
-        </div>
-        
-        <div class="content"> <!-- было id="content" -->
-            <h1 class="profile-title">Информация об авторе</h1>
-            <img class="profile-photo" src="images/myphoto.png" alt="Фото автора">
-            <h2 class="profile-name">Манжиков Дольган Саналович</h2>
-            <p class="profile-group">ЭФБО-08-24</p>
-            
-            <div class="about-me">
-                <h3>Обо мне:</h3>
+        </nav>
+
+        <!-- Используем семантический тег main -->
+        <main class="content">
+            <article class="profile-header">
+                <h1 class="profile-title">Информация об авторе</h1>
+                <img class="profile-photo" src="images/myphoto.png" alt="Фото автора">
+                <h2 class="profile-name">Манжиков Дольган Саналович</h2>
+                <p class="profile-group">ЭФБО-08-24</p>
+            </article>
+
+            <section class="about-me">
+                <h2>Обо мне</h2>
                 <p>Я родился в Элисте в 2006-м. Глупость рано ударила в голову. Но я иду к своей цели. 
                 Тихо, но верно. С девушками проблемы. В активном поиске))).</p>
-            </div>
-            
-            <div class="skills-container">
-                <h3>Навыки:</h3>
-                <div class="skill-tag">Навык 1</div>
-                <div class="skill-tag">Навык 2</div>
-                <div class="skill-tag">Навык 3</div>
-                <div class="skill-tag">Навык 4</div>
-            </div>
-            
-            <div class="experience-section">
-                <h2 class="section-title">Мой опыт работы:</h2>
-                <div class="experience-card">
-                    <h3 class="experience-title">Опыт 1</h3>
-                    <p class="experience-desc">Работал фантазёром. Сочинял и праздновал.</p>
+            </section>
+
+            <section class="skills-container">
+                <h2>Мои навыки</h2>
+                <!-- Используем Grid для навыков -->
+                <div class="skills-grid">
+                    <div class="skill-tag">Навык 1</div>
+                    <div class="skill-tag">Навык 2</div>
+                    <div class="skill-tag">Навык 3</div>
+                    <div class="skill-tag">Навык 4</div>
                 </div>
-                <div class="experience-card">
-                    <h3 class="experience-title">Опыт 2</h3>
-                    <p class="experience-desc">Работал системным админом. Помогал учителям с компютером.</p>
+            </section>
+
+            <section class="experience-section">
+                <h2 class="section-title">Мой опыт работы</h2>
+                <!-- Используем Grid для карточек опыта -->
+                <div class="experience-grid">
+                    <article class="experience-card">
+                        <h3 class="experience-title">Опыт 1</h3>
+                        <p class="experience-desc">Работал фантазёром. Сочинял и праздновал.</p>
+                    </article>
+                    <article class="experience-card">
+                        <h3 class="experience-title">Опыт 2</h3>
+                        <p class="experience-desc">Работал системным админом. Помогал учителям с компьютером.</p>
+                    </article>
+                    <article class="experience-card">
+                        <h3 class="experience-title">Опыт 3</h3>
+                        <p class="experience-desc">Работал продавцом. Продавал бананы, людей… Шучу, не бананы.</p>
+                    </article>
                 </div>
-                <div class="experience-card">
-                    <h3 class="experience-title">Опыт 3</h3>
-                    <p class="experience-desc">Работал продавцом. Продавал бананы, людей .Шучу не бананы</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Замените id на class -->
-        <div class="footer">Футер</div>
-    </div> <!-- Закрываем page-container -->
+            </section>
+        </main>
+
+        <!-- Используем семантический тег footer -->
+        <footer class="footer">
+            <p>Футер</p>
+        </footer>
+    </div>
 </body>
 </html>

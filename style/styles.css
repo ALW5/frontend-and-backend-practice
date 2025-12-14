@@ -8,12 +8,21 @@ body {
 }
 
 /* ==== КОНТЕЙНЕР СТРАНИЦЫ ==== */
+/* ИЗМЕНЕНИЕ: Добавляем CSS Grid для основного макета страницы */
 .page-container {
     max-width: 1200px;
     margin: 0 auto;
     background: white;
     min-height: 100vh;
     box-shadow: 0 0 30px rgba(0,0,0,0.1);
+    /* Новое: Сеточный макет для семантических областей */
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas:
+        "header"
+        "nav"
+        "main"
+        "footer";
 }
 
 /* ==== ШАПКА ==== */
@@ -25,12 +34,16 @@ body {
     font-size: 28px;
     font-weight: 300;
     letter-spacing: 2px;
+    /* Новое: Привязка к области сетки */
+    grid-area: header;
 }
 
 /* ==== НАВИГАЦИЯ ==== */
 .nav {
     background: #2c3e50;
     padding: 20px 0;
+    /* Новое: Привязка к области сетки */
+    grid-area: nav;
 }
 
 .nav-list {
@@ -51,7 +64,7 @@ body {
     text-decoration: none;
     padding: 12px 25px;
     border-radius: 25px;
-    transition: all 0.35s ease;
+    transition: all 0.3s ease;
     font-weight: 500;
 }
 
@@ -65,6 +78,8 @@ body {
     padding: 40px;
     max-width: 900px;
     margin: 0 auto;
+    /* Новое: Привязка к области сетки */
+    grid-area: main;
 }
 
 /* ==== ГЛАВНАЯ СТРАНИЦА ==== */
@@ -114,12 +129,16 @@ body {
 }
 
 /* ==== НАВЫКИ ==== */
+/* ИЗМЕНЕНИЕ: Заменяем Flex на CSS Grid для навыков */
 .skills-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
     margin: 30px 0;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
 }
 
 .skill-tag {
@@ -131,6 +150,7 @@ body {
     font-size: 14px;
     box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3);
     transition: all 0.3s ease;
+    text-align: center;
 }
 
 .skill-tag:hover {
@@ -151,10 +171,16 @@ body {
     font-weight: 300;
 }
 
+/* ИЗМЕНЕНИЕ: Заменяем вертикальное расположение на CSS Grid */
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
 .experience-card {
     background: white;
     padding: 25px;
-    margin: 20px 0;
     border-radius: 12px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.08);
     border-left: 4px solid #667eea;
@@ -184,68 +210,25 @@ body {
     color: white;
     text-align: center;
     padding: 30px;
-    margin-top: 50px;
+    /* Убрали margin-top, т.к. теперь используем Grid */
+    /* Новое: Привязка к области сетки */
+    grid-area: footer;
 }
 
-/* ==== ДОПОЛНИТЕЛЬНЫЕ СТИЛИ ДЛЯ ДРУГИХ СТРАНИЦ ==== */
-.news-item {
-    background: white;
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    border-left: 4px solid #4facfe;
-}
-
-.product {
-    background: white;
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.product:hover {
-    transform: translateY(-5px);
-}
-
-.product img {
-    border-radius: 10px;
-    max-width: 100%;
-    height: auto;
-}
-
-button {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    border: none;
-    padding: 12px 30px;
-    border-radius: 25px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-}
-/* Стили для товаров */
-.product-grid {
+/* ==== СТИЛИ ДЛЯ ТОВАРОВ (goods.html) ==== */
+.products-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
+    gap: 30px;
     margin-top: 30px;
 }
 
 .product-card {
     background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    padding: 25px;
+    border-radius: 15px;
     text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
     transition: transform 0.3s ease;
 }
 
@@ -254,51 +237,110 @@ button:hover {
 }
 
 .product-image {
-    border-radius: 8px;
-    margin-bottom: 15px;
+    width: 100%;
+    max-width: 200px;
+    height: 250px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 3px solid #f8f9fa;
+}
+
+.product-name {
+    font-size: 18px;
+    color: #2c3e50;
+    margin: 10px 0;
+    font-weight: 600;
 }
 
 .product-price {
     font-size: 20px;
-    font-weight: bold;
-    color: #667eea;
-    margin-top: 10px;
+    color: #e74c3c;
+    font-weight: 700;
+    margin: 5px 0;
 }
-/* Стили для страницы контактов */
+
+/* ==== СТИЛИ ДЛЯ КОНТАКТОВ (contacts.html) ==== */
+.contacts-container {
+    text-align: center;
+}
+
 .contact-info {
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 25px;
+    margin: 20px 0;
+    border-radius: 15px;
+    font-size: 18px;
+    color: #2c3e50;
     max-width: 600px;
-    margin: 0 auto;
-}
-
-.contact-item {
-    margin-bottom: 25px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #eee;
-}
-
-.contact-item:last-child {
-    border-bottom: none;
+    margin: 20px auto;
 }
 
 .contact-button {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     border: none;
-    padding: 15px 30px;
-    border-radius: 25px;
-    font-size: 18px;
+    padding: 15px 40px;
+    font-size: 16px;
+    border-radius: 30px;
     cursor: pointer;
+    margin-top: 20px;
+    font-weight: 600;
     transition: all 0.3s ease;
-    display: block;
-    margin: 30px auto 0;
-    width: 200px;
+    display: inline-block;
 }
 
 .contact-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+/* ==== АДАПТИВНОСТЬ ==== */
+/* Новое: Медиа-запросы для мобильных устройств */
+@media (max-width: 768px) {
+    .nav-list {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+    
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .experience-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .content {
+        padding: 20px;
+    }
+    
+    .profile-photo {
+        width: 180px;
+        height: 230px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 20px;
+        font-size: 24px;
+    }
+    
+    .nav-link {
+        padding: 10px 20px;
+    }
+    
+    .profile-title {
+        font-size: 28px;
+    }
+    
+    .section-title {
+        font-size: 24px;
+    }
 }
