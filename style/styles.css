@@ -8,12 +8,14 @@ body {
 }
 
 /* ==== КОНТЕЙНЕР СТРАНИЦЫ ==== */
+/* ИЗМЕНЕНИЕ: Добавляем CSS Grid для основного макета страницы */
 .page-container {
     max-width: 1200px;
     margin: 0 auto;
     background: white;
     min-height: 100vh;
     box-shadow: 0 0 30px rgba(0,0,0,0.1);
+    /* Новое: Сеточный макет для семантических областей */
     display: grid;
     grid-template-rows: auto auto 1fr auto;
     grid-template-areas:
@@ -32,6 +34,7 @@ body {
     font-size: 28px;
     font-weight: 300;
     letter-spacing: 2px;
+    /* Новое: Привязка к области сетки */
     grid-area: header;
 }
 
@@ -39,6 +42,7 @@ body {
 .nav {
     background: #2c3e50;
     padding: 20px 0;
+    /* Новое: Привязка к области сетки */
     grid-area: nav;
 }
 
@@ -70,10 +74,11 @@ body {
 }
 
 /* ==== ОСНОВНОЙ КОНТЕНТ ==== */
-main.content {
+.content {
     padding: 40px;
     max-width: 900px;
     margin: 0 auto;
+    /* Новое: Привязка к области сетки */
     grid-area: main;
 }
 
@@ -124,11 +129,16 @@ main.content {
 }
 
 /* ==== НАВЫКИ ==== */
+/* ИЗМЕНЕНИЕ: Заменяем Flex на CSS Grid для навыков */
+.skills-container {
+    margin: 30px 0;
+}
+
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 15px;
-    margin: 20px 0;
+    margin-top: 20px;
 }
 
 .skill-tag {
@@ -161,6 +171,7 @@ main.content {
     font-weight: 300;
 }
 
+/* ИЗМЕНЕНИЕ: Заменяем вертикальное расположение на CSS Grid */
 .experience-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -193,43 +204,21 @@ main.content {
     margin: 0;
 }
 
-/* ==== НОВОСТИ ==== */
-.news-container {
-    display: grid;
-    gap: 25px;
-}
-
-.news-card {
-    background: white;
+/* ==== ФУТЕР ==== */
+.footer {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    text-align: center;
     padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-    border-left: 4px solid #667eea;
+    /* Убрали margin-top, т.к. теперь используем Grid */
+    /* Новое: Привязка к области сетки */
+    grid-area: footer;
 }
 
-.news-title {
-    font-size: 24px;
-    color: #2c3e50;
-    margin: 0 0 10px 0;
-    font-weight: 600;
-}
-
-.news-meta {
-    color: #95a5a6;
-    font-size: 14px;
-    margin: 0 0 15px 0;
-}
-
-.news-text {
-    color: #34495e;
-    line-height: 1.7;
-    margin: 0;
-}
-
-/* ==== ТОВАРЫ ==== */
+/* ==== СТИЛИ ДЛЯ ТОВАРОВ (goods.html) ==== */
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 30px;
     margin-top: 30px;
 }
@@ -248,7 +237,8 @@ main.content {
 }
 
 .product-image {
-    width: 200px;
+    width: 100%;
+    max-width: 200px;
     height: 250px;
     border-radius: 10px;
     object-fit: cover;
@@ -270,7 +260,7 @@ main.content {
     margin: 5px 0;
 }
 
-/* ==== КОНТАКТЫ ==== */
+/* ==== СТИЛИ ДЛЯ КОНТАКТОВ (contacts.html) ==== */
 .contacts-container {
     text-align: center;
 }
@@ -282,6 +272,8 @@ main.content {
     border-radius: 15px;
     font-size: 18px;
     color: #2c3e50;
+    max-width: 600px;
+    margin: 20px auto;
 }
 
 .contact-button {
@@ -295,6 +287,7 @@ main.content {
     margin-top: 20px;
     font-weight: 600;
     transition: all 0.3s ease;
+    display: inline-block;
 }
 
 .contact-button:hover {
@@ -302,264 +295,52 @@ main.content {
     box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
 }
 
-/* ==== ФУТЕР ==== */
-.footer {
-    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-    color: white;
-    text-align: center;
-    padding: 30px;
-    margin-top: 50px;
-    grid-area: footer;
-}
-
-/* ==== МОДАЛЬНОЕ ОКНО ==== */
-dialog::backdrop {
-    background: rgba(0, 0, 0, 0.6);
-    animation: fadeIn 0.3s ease;
-}
-
-dialog {
-    border: none;
-    border-radius: 12px;
-    padding: 0;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    animation: slideIn 0.3s ease;
-    max-width: 500px;
-    width: 90vw;
-    max-height: 90vh;
-    overflow-y: auto;
-}
-
-.modal-header {
-    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-    color: white;
-    padding: 1.5rem;
-    border-radius: 12px 12px 0 0;
-    margin: 0;
-}
-
-.modal-header h2 {
-    margin: 0;
-    color: white;
-    font-size: 1.5rem;
-}
-
-.modal-content {
-    padding: 2rem;
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    color: #2c3e50;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-    width: 100%;
-    padding: 0.75rem;
-    border: 2px solid #e9ecef;
-    border-radius: 6px;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
-    box-sizing: border-box;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: #667eea;
-}
-
-.form-group textarea {
-    min-height: 100px;
-    resize: vertical;
-}
-
-.modal-actions {
-    display: flex;
-    gap: 1rem;
-    justify-content: flex-end;
-    margin-top: 2rem;
-}
-
-.btn {
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    font-weight: 600;
-}
-
-.btn-primary {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-}
-
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-}
-
-.btn-secondary {
-    background: #f8f9fa;
-    color: #2c3e50;
-    border: 2px solid #e9ecef;
-}
-
-.btn-secondary:hover {
-    background: #e9ecef;
-}
-
-.required {
-    color: #e74c3c;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(-50px) scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-
-/* ==== БЭМ КОМПОНЕНТЫ ==== */
-:root {
-    --color-main: #2c3e50;
-    --color-accent: #3498db;
-    --color-light: #ecf0f1;
-    --color-dark: #34495e;
-    --color-text: #2c3e50;
-    --color-white: #ffffff;
-    --shadow: 0 2px 5px rgba(0,0,0,0.1);
-    --radius: 8px;
-    --space-sm: 10px;
-    --space-md: 20px;
-    --space-lg: 30px;
-}
-
-.nav_item--active .nav_link {
-    background: var(--color-accent);
-    font-weight: bold;
-}
-
-.skill {
-    padding: var(--space-md);
-    border-radius: var(--radius);
-    color: var(--color-white);
-    font-weight: bold;
-    transition: transform 0.3s;
-}
-
-.skill:hover {
-    transform: translateY(-3px);
-}
-
-.skill--html {
-    background: #e34c26;
-}
-
-.skill--css {
-    background: #264de4;
-}
-
-.skill--js {
-    background: #f0db4f;
-    color: var(--color-text);
-}
-
-.news-item {
-    padding: var(--space-md);
-    border-left: 4px solid var(--color-accent);
-    background: var(--color-light);
-    border-radius: var(--radius);
-}
-
-.news-item_title {
-    color: var(--color-main);
-    margin-bottom: var(--space-sm);
-}
-
-.news-item_date {
-    color: var(--color-accent);
-    font-size: 0.9rem;
-    margin-bottom: var(--space-sm);
-}
-
-.news-item_text {
-    line-height: 1.5;
-}
-
-.contact-item {
-    padding: var(--space-md);
-    background: var(--color-light);
-    border-radius: var(--radius);
-    text-align: center;
-}
-
-.contact-item_title {
-    color: var(--color-main);
-    margin-bottom: var(--space-sm);
-    font-size: 1.1rem;
-}
-
-.contact-item_value {
-    color: var(--color-accent);
-    font-weight: bold;
-}
-
 /* ==== АДАПТИВНОСТЬ ==== */
+/* Новое: Медиа-запросы для мобильных устройств */
 @media (max-width: 768px) {
     .nav-list {
         flex-direction: column;
         gap: 10px;
+        align-items: center;
     }
-
+    
     .skills-grid {
         grid-template-columns: 1fr;
     }
-
+    
     .experience-grid {
         grid-template-columns: 1fr;
     }
-
+    
     .products-grid {
         grid-template-columns: 1fr;
     }
-
-    main.content {
+    
+    .content {
         padding: 20px;
+    }
+    
+    .profile-photo {
+        width: 180px;
+        height: 230px;
     }
 }
 
-@media (max-width: 600px) {
-    dialog {
-        margin: 1rem;
-        width: calc(100vw - 2rem);
+@media (max-width: 480px) {
+    .header {
+        padding: 20px;
+        font-size: 24px;
     }
-
-    .modal-actions {
-        flex-direction: column;
+    
+    .nav-link {
+        padding: 10px 20px;
     }
-
-    .btn {
-        width: 100%;
+    
+    .profile-title {
+        font-size: 28px;
+    }
+    
+    .section-title {
+        font-size: 24px;
     }
 }
