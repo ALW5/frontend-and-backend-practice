@@ -3,24 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Семестровая работа</title>
+    <title>Моё портфолио</title>
     <link rel="stylesheet" href="style/styles.css">
 </head>
 <body>
     <div class="page-container">
-        <!-- Используем семантический тег header -->
+        <!-- ШАПКА -->
         <header class="header">
             <h1>Моё портфолио</h1>
         </header>
 
-        <!-- Используем семантический тег nav -->
+        <!-- НАВИГАЦИЯ -->
         <nav class="nav">
             <ul class="nav-list">
                 <li class="nav-item nav-item--active">
                     <a class="nav-link" href="index.html">Главная</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="pages/news.html">Новости</a></li>
+                    <a class="nav-link" href="pages/news.html">Новости</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="pages/practices.html">Практики</a>
                 </li>
@@ -33,25 +34,34 @@
             </ul>
         </nav>
 
-        <!-- Используем семантический тег main -->
+        <!-- ОСНОВНОЙ КОНТЕНТ -->
         <main class="content">
-            <article class="profile-header">
-                <h1 class="profile-title">Информация об авторе</h1>
-                <img class="profile-photo" src="images/myphoto.png" alt="Фото автора">
-                <h2 class="profile-name">Манжиков Дольган Саналович</h2>
-                <p class="profile-group">ЭФБО-08-24</p>
-            </article>
-
-            <section class="about-me">
-                <h2>Обо мне</h2>
-                <p>Я родился в Элисте в 2006-м. Глупость рано ударила в голову. Но я иду к своей цели. 
-                Тихо, но верно. С девушками проблемы. В активном поиске))).</p>
+            <!-- ПРОФИЛЬ -->
+            <section class="profile">
+                <div class="profile-card">
+                    <img class="profile-photo" src="images/myphoto.png" alt="Фото Манжикова Дольгана">
+                    <div class="profile-info">
+                        <h2>Манжиков Дольган Саналович</h2>
+                        <p class="profile-group">ЭФБО-08-24</p>
+                    </div>
+                </div>
             </section>
 
-            <section class="skills-container">
-                <h2>Мои навыки</h2>
-                <!-- Используем Grid для навыков -->
-                <div class="skills-grid">
+            <!-- ОБО МНЕ -->
+            <section class="about">
+                <h2 class="about-title">Обо мне</h2>
+                <div class="about-content">
+                    <p class="about-text">
+                        Студент, увлекаюсь веб-разработкой. Изучаю HTML, CSS и JavaScript. 
+                        Люблю создавать красивые и функциональные сайты.
+                    </p>
+                </div>
+            </section>
+
+            <!-- НАВЫКИ -->
+            <section class="skills">
+                <h2 class="skills-title">Мои навыки</h2>
+                <div class="skills-list">
                     <div class="skill-tag skill-tag--html">HTML</div>
                     <div class="skill-tag skill-tag--css">CSS</div>
                     <div class="skill-tag skill-tag--js">JavaScript</div>
@@ -59,25 +69,25 @@
                 </div>
             </section>
 
-            <section class="experience-section">
-                <h2 class="section-title">Проекты</h2>
-                <!-- Используем Grid для карточек опыта -->
-                <div class="experience-grid">
-                    <article class="experience-card">
-                        <h3 class="experience-title">Личный сайт</h3>
-                        <p class="experience-desc">Сайт портфолио на HTML и CSS.</p>
-                    </article>
-                    <article class="experience-card">
-                        <h3 class="experience-title">Todo приложение</h3>
-                        <p class="experience-desc">Простое приложение для задач.</p>
-                    </article>
+            <!-- ПРОЕКТЫ -->
+            <section class="projects">
+                <h2 class="projects-title">Проекты</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h3 class="project-card-title">Личный сайт</h3>
+                        <p class="project-card-desc">Сайт-портфолио на HTML и CSS</p>
+                    </div>
+                    <div class="project-card">
+                        <h3 class="project-card-title">Todo приложение</h3>
+                        <p class="project-card-desc">Простое приложение для задач</p>
+                    </div>
                 </div>
             </section>
         </main>
 
-        <!-- Используем семантический тег footer -->
+        <!-- ПОДВАЛ -->
         <footer class="footer">
-            <p>&copy; 2025 Мой сайт</p>
+            <p class="footer-text">&copy; 2025 Мой сайт</p>
         </footer>
     </div>
 </body>

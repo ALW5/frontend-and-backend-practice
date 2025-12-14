@@ -366,3 +366,121 @@ body {
         font-size: 24px;
     }
 }
+
+/* ===== СТИЛИ ДЛЯ МАКЕТА ИЗ МЕТОДИЧКИ ===== */
+
+/* Блок profile */
+.profile {
+    margin-bottom: var(--space-lg);
+}
+
+.profile-card {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    background: var(--color-white);
+    padding: var(--space-lg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.profile-info h2 {
+    font-size: 1.5rem;
+    color: var(--color-main);
+    margin-bottom: var(--space-sm);
+    font-weight: 500;
+}
+
+/* Блок about */
+.about {
+    background: var(--color-light);
+    padding: var(--space-lg);
+    margin-bottom: var(--space-lg);
+    border-radius: var(--radius);
+    border-left: 5px solid var(--color-accent);
+}
+
+.about-title {
+    color: var(--color-main);
+    margin-bottom: var(--space-md);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.about-text {
+    line-height: 1.6;
+    margin-bottom: var(--space-sm);
+}
+
+/* Блок skills */
+.skills {
+    margin-bottom: var(--space-lg);
+}
+
+.skills-title {
+    color: var(--color-main);
+    margin-bottom: var(--space-md);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.skills-list {
+    display: flex;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+}
+
+/* Блок projects */
+.projects {
+    margin-bottom: var(--space-lg);
+}
+
+.projects-title {
+    color: var(--color-main);
+    margin-bottom: var(--space-md);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-md);
+}
+
+.project-card {
+    background: var(--color-white);
+    padding: var(--space-lg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border-left: 4px solid var(--color-accent);
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-card-title {
+    color: var(--color-main);
+    margin-bottom: var(--space-sm);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.project-card-desc {
+    color: #7f8c8d;
+    line-height: 1.6;
+}
+
+/* Адаптивность для проектов */
+@media (max-width: 768px) {
+    .profile-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
