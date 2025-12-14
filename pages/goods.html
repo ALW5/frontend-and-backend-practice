@@ -8,72 +8,82 @@
 </head>
 <body>
     <div class="page-container">
-        <!-- Семантический тег header -->
+        <!-- ШАПКА -->
         <header class="header">
-            <h1>Товары</h1>
+            <h1>Наши товары</h1>
         </header>
 
-        <!-- Семантический тег nav -->
+        <!-- НАВИГАЦИЯ -->
         <nav class="nav">
             <ul class="nav-list">
-                <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
-                <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
-                <li class="nav-item"><a class="nav-link" href="practices.html">Практики</a></li>
-                <li class="nav-item"><a class="nav-link" href="goods.html">Товары</a></li>
-                <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="news.html">Новости</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="practices.html">Практики</a>
+                </li>
+                <li class="nav-item nav-item--active">
+                    <a class="nav-link" href="goods.html">Товары</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contacts.html">Контакты</a>
+                </li>
             </ul>
         </nav>
 
-        <!-- Семантический тег main для основного содержимого -->
+        <!-- ОСНОВНОЙ КОНТЕНТ -->
         <main class="content">
-            <section class="products-section">
-                <h1 class="section-title">Наши товары</h1>
-                <p class="section-subtitle">Мы предлагаем широкий ассортимент качественных товаров по доступным ценам</p>
-                
-                <!-- Используем CSS Grid для сетки товаров -->
-                <div class="products-grid">
-                    <!-- Семантический тег article для каждого товара -->
-                    <article class="product-card">
-                        <img src="../images/goods1.png" alt="Arcane" class="product-image">
-                        <div class="product-content">
-                            <h3 class="product-name">Drow Ranger</h3>
-                            <p class="product-desc">Arcane Drow Ranger</p>
-                            <div class="product-footer">
-                                <p class="product-price">3214 ₽</p>
-                                <button class="product-button">В корзину</button>
-                            </div>
-                        </div>
-                    </article>
-                    
-                    <article class="product-card">
-                        <img src="../images/goods2.png" alt="Arcane" class="product-image">
-                        <div class="product-content">
-                            <h3 class="product-name">Phantom Assasin</h3>
-                            <p class="product-desc">Arcane Phantom Assasin</p>
-                            <div class="product-footer">
-                                <p class="product-price">2133 ₽</p>
-                                <button class="product-button">В корзину</button>
-                            </div>
-                        </div>
-                    </article>
-                    
-                    <article class="product-card">
-                        <img src="../images/goods3.png" alt="Arcane" class="product-image">
-                        <div class="product-content">
-                            <h3 class="product-name">Lina</h3>
-                            <p class="product-desc">Arcane Lina</p>
-                            <div class="product-footer">
-                                <p class="product-price">2567 ₽</p>
-                                <button class="product-button">В корзину</button>
-                            </div>
-                        </div>
-                    </article>
-                </div>
+            <!-- Заголовок раздела -->
+            <section class="section-header">
+                <h2 class="section-title">Наш ассортимент</h2>
+                <p class="section-description">
+                    Мы предлагаем широкий ассортимент качественных товаров по доступным ценам
+                </p>
             </section>
+
+            <!-- Сетка товаров -->
+            <div class="products-grid">
+                <!-- Товар 1 -->
+                <div class="product-card">
+                    <img class="product-image" src="../images/goods1.jpg" alt="Drow Ranger">
+                    <div class="product-info">
+                        <h3 class="product-name">Drow Ranger</h3>
+                        <p class="product-description">Arcane Drow Ranger - коллекционная фигурка</p>
+                        <div class="product-price">$49.99</div>
+                        <button class="product-button">Добавить в корзину</button>
+                    </div>
+                </div>
+
+                <!-- Товар 2 -->
+                <div class="product-card">
+                    <img class="product-image" src="../images/goods2.jpg" alt="Phantom Assassin">
+                    <div class="product-info">
+                        <h3 class="product-name">Phantom Assassin</h3>
+                        <p class="product-description">Arcane Phantom Assassin - эксклюзивная модель</p>
+                        <div class="product-price">$59.99</div>
+                        <button class="product-button">Добавить в корзину</button>
+                    </div>
+                </div>
+
+                <!-- Товар 3 -->
+                <div class="product-card">
+                    <img class="product-image" src="../images/goods3.jpg" alt="Lina">
+                    <div class="product-info">
+                        <h3 class="product-name">Lina</h3>
+                        <p class="product-description">Arcane Lina - ограниченная серия</p>
+                        <div class="product-price">$54.99</div>
+                        <button class="product-button">Добавить в корзину</button>
+                    </div>
+                </div>
+            </div>
         </main>
 
-        <!-- Семантический тег footer -->
+        <!-- ПОДВАЛ -->
         <footer class="footer">
+            <p class="footer-text">&copy;Все права защищены.</p>
         </footer>
     </div>
 </body>
