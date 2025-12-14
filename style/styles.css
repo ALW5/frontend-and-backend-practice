@@ -302,7 +302,17 @@ main.content {
     box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
 }
 
-/* ==== МОДАЛЬНОЕ ОКНО (из занятия 10) ==== */
+/* ==== ФУТЕР ==== */
+.footer {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    text-align: center;
+    padding: 30px;
+    margin-top: 50px;
+    grid-area: footer;
+}
+
+/* ==== МОДАЛЬНОЕ ОКНО ==== */
 dialog::backdrop {
     background: rgba(0, 0, 0, 0.6);
     animation: fadeIn 0.3s ease;
@@ -430,18 +440,7 @@ dialog {
     }
 }
 
-/* ==== ФУТЕР ==== */
-.footer {
-    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-    color: white;
-    text-align: center;
-    padding: 30px;
-    margin-top: 50px;
-    grid-area: footer;
-}
-
-/* ==== БЭМ СТИЛИ (из занятия 11) ==== */
-/* CSS переменные */
+/* ==== БЭМ КОМПОНЕНТЫ ==== */
 :root {
     --color-main: #2c3e50;
     --color-accent: #3498db;
@@ -456,7 +455,6 @@ dialog {
     --space-lg: 30px;
 }
 
-/* БЭМ компоненты */
 .nav_item--active .nav_link {
     background: var(--color-accent);
     font-weight: bold;
@@ -551,7 +549,6 @@ dialog {
     }
 }
 
-/* Адаптивность для модального окна */
 @media (max-width: 600px) {
     dialog {
         margin: 1rem;
