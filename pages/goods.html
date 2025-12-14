@@ -8,8 +8,13 @@
 </head>
 <body>
     <div class="page-container">
-        <div class="header">Хэдер</div>
-        <div class="nav">
+        <!-- Семантический тег header -->
+        <header class="header">
+            <h1>Товары</h1>
+        </header>
+
+        <!-- Семантический тег nav -->
+        <nav class="nav">
             <ul class="nav-list">
                 <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
                 <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
@@ -17,36 +22,59 @@
                 <li class="nav-item"><a class="nav-link" href="goods.html">Товары</a></li>
                 <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
             </ul>
-        </div>
-        
-        <div class="content">
-            <h1 class="section-title">Наши товары</h1>
-            
-            <div class="product-grid">
-                <div class="product-card">
-                    <img src="../images/goods1.png" alt="Товар 1" width="200" class="product-image">
-                    <h3>Товар 1</h3>
-                    <p>Описание товара 1</p>
-                    <p class="product-price">3214 ₽</p>
-                </div>
+        </nav>
+
+        <!-- Семантический тег main для основного содержимого -->
+        <main class="content">
+            <section class="products-section">
+                <h1 class="section-title">Наши товары</h1>
+                <p class="section-subtitle">Мы предлагаем широкий ассортимент качественных товаров по доступным ценам</p>
                 
-                <div class="product-card">
-                    <img src="../images/goods2.png" alt="Товар 2" width="200" class="product-image">
-                    <h3>Товар 2</h3>
-                    <p>Описание товара 2</p>
-                    <p class="product-price">2133 ₽</p>
+                <!-- Используем CSS Grid для сетки товаров -->
+                <div class="products-grid">
+                    <!-- Семантический тег article для каждого товара -->
+                    <article class="product-card">
+                        <img src="../images/goods1.png" alt="Arcane" class="product-image">
+                        <div class="product-content">
+                            <h3 class="product-name">Drow Ranger</h3>
+                            <p class="product-desc">Arcane Drow Ranger</p>
+                            <div class="product-footer">
+                                <p class="product-price">3214 ₽</p>
+                                <button class="product-button">В корзину</button>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="product-card">
+                        <img src="../images/goods2.png" alt="Arcane" class="product-image">
+                        <div class="product-content">
+                            <h3 class="product-name">Phantom Assasin</h3>
+                            <p class="product-desc">Arcane Phantom Assasin</p>
+                            <div class="product-footer">
+                                <p class="product-price">2133 ₽</p>
+                                <button class="product-button">В корзину</button>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="product-card">
+                        <img src="../images/goods3.png" alt="Arcane" class="product-image">
+                        <div class="product-content">
+                            <h3 class="product-name">Lina</h3>
+                            <p class="product-desc">Arcane Lina</p>
+                            <div class="product-footer">
+                                <p class="product-price">2567 ₽</p>
+                                <button class="product-button">В корзину</button>
+                            </div>
+                        </div>
+                    </article>
                 </div>
-                
-                <div class="product-card">
-                    <img src="../images/goods3.png" alt="Товар 3" width="200" class="product-image">
-                    <h3>Товар 3</h3>
-                    <p>Описание товара 3</p>
-                    <p class="product-price">2567 ₽</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="footer">Футер</div>
-    </div> 
+            </section>
+        </main>
+
+        <!-- Семантический тег footer -->
+        <footer class="footer">
+        </footer>
+    </div>
 </body>
 </html>

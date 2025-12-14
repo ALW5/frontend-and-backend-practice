@@ -8,8 +8,13 @@
 </head>
 <body>
     <div class="page-container">
-        <div class="header">Хэдер</div>
-        <div class="nav">
+        <!-- Семантический тег header -->
+        <header class="header">
+            <h1>Новости</h1>
+        </header>
+
+        <!-- Семантический тег nav -->
+        <nav class="nav">
             <ul class="nav-list">
                 <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
                 <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
@@ -17,31 +22,48 @@
                 <li class="nav-item"><a class="nav-link" href="goods.html">Товары</a></li>
                 <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
             </ul>
-        </div>
-        
-        <div class="content">
-            <h1 class="section-title">Новости</h1>
+        </nav>
+
+        <!-- Семантический тег main для основного содержимого -->
+        <main class="content">
+            <h1 class="section-title">Последние новости</h1>
             
-            <div class="news-item">
-                <h2>Новость 1: Начало</h2>
-                <p class="news-meta"><small>09.12.2025 12:32 | Автор: Манжиков Д.С.</small></p>
-                <p>Начал выполнять задания по фронтенд и бэкенд разработки.</p>
+            <!-- Используем CSS Grid для сетки новостей -->
+            <div class="news-grid">
+                <!-- Семантический тег article для каждой новости -->
+                <article class="news-card">
+                    <h2 class="news-title">Новость 1: Начало</h2>
+                    <p class="news-meta"><small>09.12.2025 12:32 | Автор: Манжиков Д.С.</small></p>
+                    <p class="news-text">Начал выполнять задания по фронтенд и бэкенд разработки. Осваиваю семантические теги и CSS Grid для создания современных адаптивных интерфейсов.</p>
+                    <a href="#" class="news-link">Читать далее...</a>
+                </article>
+                
+                <article class="news-card">
+                    <h2 class="news-title">Новость 2: Продолжение</h2>
+                    <p class="news-meta"><small>12.12.2025 23:35 | Автор: Манжиков Д.С.</small></p>
+                    <p class="news-text">Продолжаю работу над проектом. Изучил основы навигации и принципы построения сеток с помощью Flex и Grid. Реализую адаптивную верстку для мобильных устройств.</p>
+                    <a href="#" class="news-link">Читать далее...</a>
+                </article>
+                
+                <article class="news-card">
+                    <h2 class="news-title">Новость 3: Вроде успеваю</h2>
+                    <p class="news-meta"><small>12.12.2025 23:35 | Автор: Манжиков Д.С.</small></p>
+                    <p class="news-text">Работа над семестровым проектом продвигается по графику. Уже реализовал основные страницы: главную, новости, товары и контакты. Осталось доработать мелочи.</p>
+                    <a href="#" class="news-link">Читать далее...</a>
+                </article>
+
+                <article class="news-card">
+                    <h2 class="news-title">Новость 4: Запуск проекта</h2>
+                    <p class="news-meta"><small>14.12.2025 19:06 | Автор: Манжиков Д.С.</small></p>
+                    <p class="news-text">Завершил основную вёрстку всех страниц проекта. Реализовал адаптивный дизайн, семантическую разметку и современные CSS-технологии. Готовлю проект к размещению на GitHub Pages.</p>
+                    <a href="#" class="news-link">Читать далее...</a>
+                </article>
             </div>
-            
-            <div class="news-item">
-                <h2>Новость 2: Продолжение</h2>
-                <p class="news-meta"><small>12.12.2025 23:35 | Автор: Манжиков Д.С.</small></p>
-                <p>БЛА-БЛА<p>
-            </div>
-            
-            <div class="news-item">
-                <h2>Новость 3: Вроде успеваю</h2>
-                <p class="news-meta"><small>12.12.2025 23:35 | Автор: Манжиков Д.С.</small></p>
-                <p>БЛА-БЛА.</p>
-            </div>
-        </div>
-        
-        <div class="footer">Футер</div>
+        </main>
+
+        <!-- Семантический тег footer -->
+        <footer class="footer">
+        </footer>
     </div>
 </body>
 </html>
