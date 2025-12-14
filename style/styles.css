@@ -1,52 +1,74 @@
-/* CSS переменные (из занятия 11) */
+/* CSS переменные */
 :root {
     --color-main: #2c3e50;
     --color-accent: #3498db;
+    --color-primary: #667eea;
+    --color-primary-dark: #764ba2;
     --color-light: #ecf0f1;
     --color-dark: #34495e;
     --color-text: #2c3e50;
     --color-white: #ffffff;
-    --color-primary: #667eea;
-    --color-primary-dark: #764ba2;
     --color-gray: #7f8c8d;
     --color-danger: #e74c3c;
+    --color-success: #2ecc71;
+    
     --color-bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     --color-header-gradient: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
     --color-light-gradient: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     --color-skill-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-
+    
     --shadow: 0 2px 5px rgba(0,0,0,0.1);
     --shadow-md: 0 5px 20px rgba(0,0,0,0.08);
-    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 30px rgba(0,0,0,0.3);
+    --shadow-primary: 0 8px 25px rgba(102, 126, 234, 0.3);
+    
     --radius-sm: 6px;
     --radius-md: 8px;
     --radius-lg: 12px;
+    --radius-xl: 15px;
     --radius-circle: 50%;
+    --radius-pill: 25px;
+    
     --space-xs: 5px;
     --space-sm: 10px;
     --space-md: 20px;
     --space-lg: 30px;
     --space-xl: 40px;
+    --space-xxl: 50px;
+    
+    --font-size-xs: 0.9rem;
+    --font-size-sm: 1rem;
+    --font-size-md: 1.1rem;
+    --font-size-lg: 1.5rem;
+    --font-size-xl: 2rem;
+    --font-size-xxl: 2.5rem;
+    
+    --transition-fast: all 0.3s ease;
+    --transition-slow: all 0.5s ease;
 }
 
 /* ==== БАЗОВЫЕ СТИЛИ ==== */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
     background: var(--color-bg-gradient);
     min-height: 100vh;
 }
 
 /* ==== КОНТЕЙНЕР СТРАНИЦЫ ==== */
-/* ИЗМЕНЕНИЕ: Добавляем CSS Grid для основного макета страницы */
 .page-container {
     max-width: 1200px;
     margin: 0 auto;
     background: var(--color-white);
     min-height: 100vh;
     box-shadow: var(--shadow-lg);
-    /* Новое: Сеточный макет для семантических областей */
     display: grid;
     grid-template-rows: auto auto 1fr auto;
     grid-template-areas:
@@ -62,18 +84,21 @@ body {
     color: var(--color-white);
     text-align: center;
     padding: var(--space-xl);
-    font-size: 28px;
+    font-size: var(--font-size-xxl);
     font-weight: 300;
     letter-spacing: 2px;
-    /* Новое: Привязка к области сетки */
     grid-area: header;
+}
+
+.header h1 {
+    margin: 0;
+    font-weight: 300;
 }
 
 /* ==== НАВИГАЦИЯ ==== */
 .nav {
     background: var(--color-main);
     padding: var(--space-md) 0;
-    /* Новое: Привязка к области сетки */
     grid-area: nav;
 }
 
@@ -93,21 +118,21 @@ body {
 .nav-link {
     color: var(--color-white);
     text-decoration: none;
-    padding: 12px 25px;
-    border-radius: 25px;
-    transition: all 0.3s ease;
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--radius-pill);
+    transition: var(--transition-fast);
     font-weight: 500;
+    display: block;
 }
 
 .nav-link:hover {
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
     transform: translateY(-2px);
 }
 
-/* БЭМ модификатор для активного пункта меню */
-.nav_item--active .nav_link {
+.nav-item--active .nav-link {
     background: var(--color-accent);
-    font-weight: bold;
+    font-weight: 600;
 }
 
 /* ==== ОСНОВНОЙ КОНТЕНТ ==== */
@@ -115,80 +140,101 @@ body {
     padding: var(--space-xl);
     max-width: 900px;
     margin: 0 auto;
-    /* Новое: Привязка к области сетки */
     grid-area: main;
 }
 
-/* ==== ГЛАВНАЯ СТРАНИЦА ==== */
-.profile-header {
+/* ==== ПРОФИЛЬ ==== */
+.profile {
     text-align: center;
     margin-bottom: var(--space-xl);
 }
 
-.profile-title {
-    font-size: 32px;
-    color: var(--color-main);
-    margin-bottom: var(--space-sm);
-    font-weight: 300;
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
 }
 
 .profile-photo {
     width: 220px;
     height: 280px;
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-xl);
     object-fit: cover;
-    margin: var(--space-md) auto;
     border: 4px solid var(--color-primary);
-    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+    box-shadow: var(--shadow-primary);
 }
 
-.profile-name {
-    font-size: 24px;
+.profile-info {
+    text-align: center;
+}
+
+.profile-info h2 {
+    font-size: var(--font-size-xl);
     color: var(--color-main);
-    margin: var(--space-sm) 0;
+    margin-bottom: var(--space-xs);
     font-weight: 500;
 }
 
 .profile-group {
-    font-size: 18px;
-    color: var(--color-gray);
-    margin: var(--space-xs) 0;
+    font-size: var(--font-size-lg);
+    color: var(--color-accent);
+    font-weight: 500;
 }
 
-.about-me {
+/* ==== ОБО МНЕ ==== */
+.about {
     background: var(--color-light-gradient);
     padding: var(--space-lg);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-xl);
     margin: var(--space-lg) 0;
     border-left: 5px solid var(--color-primary);
-    font-size: 16px;
+}
+
+.about-title {
+    font-size: var(--font-size-xl);
+    color: var(--color-main);
+    margin-bottom: var(--space-md);
+    font-weight: 400;
+}
+
+.about-text {
+    font-size: var(--font-size-md);
     line-height: 1.8;
+    color: var(--color-text);
 }
 
 /* ==== НАВЫКИ ==== */
-/* ИЗМЕНЕНИЕ: Заменяем Flex на CSS Grid для навыков */
-.skills-container {
-    margin: var(--space-lg) 0;
+.skills {
+    margin: var(--space-xl) 0;
 }
 
-.skills-grid {
+.skills-title {
+    font-size: var(--font-size-xl);
+    color: var(--color-main);
+    text-align: center;
+    margin-bottom: var(--space-lg);
+    font-weight: 400;
+}
+
+.skills-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: var(--space-sm);
+    gap: var(--space-md);
     margin-top: var(--space-md);
 }
 
-/* Старый стиль навыков */
 .skill-tag {
     background: var(--color-skill-gradient);
     color: var(--color-white);
     padding: var(--space-sm) var(--space-lg);
-    border-radius: 25px;
+    border-radius: var(--radius-pill);
     font-weight: 600;
-    font-size: 14px;
+    font-size: var(--font-size-sm);
     box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3);
-    transition: all 0.3s ease;
+    transition: var(--transition-fast);
     text-align: center;
+    cursor: default;
 }
 
 .skill-tag:hover {
@@ -196,387 +242,101 @@ body {
     box-shadow: 0 6px 20px rgba(79, 172, 254, 0.4);
 }
 
-/* Новые БЭМ стили навыков (из занятия 11) */
-.skill {
-    padding: var(--space-md);
-    border-radius: var(--radius-md);
-    color: var(--color-white);
-    font-weight: bold;
-    transition: transform 0.3s;
-    text-align: center;
-}
-
-.skill:hover {
-    transform: translateY(-3px);
-}
-
-.skill--html {
+.skill-tag--html {
     background: #e34c26;
+    box-shadow: 0 4px 15px rgba(227, 76, 38, 0.3);
 }
 
-.skill--css {
+.skill-tag--css {
     background: #264de4;
+    box-shadow: 0 4px 15px rgba(38, 77, 228, 0.3);
 }
 
-.skill--js {
+.skill-tag--js {
     background: #f0db4f;
     color: var(--color-text);
+    box-shadow: 0 4px 15px rgba(240, 219, 79, 0.3);
 }
 
-/* ==== ОПЫТ РАБОТЫ ==== */
-.experience-section {
-    margin-top: 50px;
+.skill-tag--other {
+    background: var(--color-success);
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
 }
 
-.section-title {
-    font-size: 28px;
+/* ==== ПРОЕКТЫ ==== */
+.projects {
+    margin: var(--space-xl) 0;
+}
+
+.projects-title {
+    font-size: var(--font-size-xl);
     color: var(--color-main);
     text-align: center;
     margin-bottom: var(--space-lg);
-    font-weight: 300;
+    font-weight: 400;
 }
 
-/* ИЗМЕНЕНИЕ: Заменяем вертикальное расположение на CSS Grid */
-.experience-grid {
+.projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--space-md);
+    gap: var(--space-lg);
+    margin-top: var(--space-md);
 }
 
-.experience-card {
+.project-card {
     background: var(--color-white);
     padding: var(--space-lg);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
-    border-left: 4px solid var(--color-primary);
-    transition: transform 0.3s ease;
+    border-left: 4px solid var(--color-accent);
+    transition: var(--transition-fast);
 }
 
-.experience-card:hover {
-    transform: translateX(5px);
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
 }
 
-.experience-title {
-    font-size: 20px;
+.project-card-title {
+    font-size: var(--font-size-lg);
     color: var(--color-main);
-    margin: 0 0 var(--space-sm) 0;
+    margin-bottom: var(--space-sm);
     font-weight: 600;
 }
 
-.experience-desc {
+.project-card-desc {
     color: var(--color-gray);
     line-height: 1.6;
-    margin: 0;
 }
 
-/* ==== СТИЛИ ДЛЯ ТОВАРОВ (goods.html) ==== */
-.products-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: var(--space-lg);
-    margin-top: var(--space-lg);
-}
-
-.product-card {
-    background: var(--color-white);
-    padding: var(--space-lg);
-    border-radius: var(--radius-md);
-    text-align: center;
-    box-shadow: var(--shadow-md);
-    transition: transform 0.3s ease;
-}
-
-.product-card:hover {
-    transform: translateY(-5px);
-}
-
-.product-image {
-    width: 100%;
-    max-width: 200px;
-    height: 250px;
-    border-radius: var(--radius-sm);
-    object-fit: cover;
-    margin-bottom: var(--space-md);
-    border: 3px solid #f8f9fa;
-}
-
-.product-name {
-    font-size: 18px;
-    color: var(--color-main);
-    margin: var(--space-sm) 0;
-    font-weight: 600;
-}
-
-.product-price {
-    font-size: 20px;
-    color: var(--color-danger);
-    font-weight: 700;
-    margin: var(--space-xs) 0;
-}
-
-/* ==== СТИЛИ ДЛЯ КОНТАКТОВ (contacts.html) ==== */
-.contacts-container {
-    text-align: center;
-}
-
-.contact-info {
-    background: var(--color-light-gradient);
-    padding: var(--space-lg);
-    margin: var(--space-md) 0;
-    border-radius: var(--radius-md);
-    font-size: 18px;
-    color: var(--color-main);
-    max-width: 600px;
-    margin: var(--space-md) auto;
-}
-
-.contact-button {
-    background: var(--color-bg-gradient);
-    color: var(--color-white);
-    border: none;
-    padding: 15px 40px;
-    font-size: 16px;
-    border-radius: 30px;
-    cursor: pointer;
-    margin-top: var(--space-md);
-    font-weight: 600;
-    transition: all 0.3s ease;
-    display: inline-block;
-}
-
-.contact-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
-}
-
-/* ==== ФУТЕР ==== */
+/* ==== ПОДВАЛ ==== */
 .footer {
     background: var(--color-header-gradient);
     color: var(--color-white);
     text-align: center;
     padding: var(--space-xl);
-    /* Убрали margin-top, т.к. теперь используем Grid */
-    /* Новое: Привязка к области сетки */
     grid-area: footer;
 }
 
-/* ==== ДОПОЛНИТЕЛЬНЫЕ БЭМ КОМПОНЕНТЫ (из занятия 11) ==== */
-
-/* Блок news */
-.news {
-    background: var(--color-white);
-    padding: var(--space-lg);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-md);
-}
-
-.news_title {
-    color: var(--color-main);
-    margin-bottom: var(--space-md);
-    font-size: 1.5rem;
-}
-
-.news_list {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
-}
-
-/* Блок news-item */
-.news-item {
-    padding: var(--space-md);
-    border-left: 4px solid var(--color-accent);
-    background: var(--color-light);
-    border-radius: var(--radius-md);
-}
-
-.news-item_title {
-    color: var(--color-main);
-    margin-bottom: var(--space-sm);
-}
-
-.news-item_date {
-    color: var(--color-accent);
-    font-size: 0.9rem;
-    margin-bottom: var(--space-sm);
-}
-
-.news-item_text {
-    line-height: 1.5;
-}
-
-/* Блок contacts (альтернативный вариант) */
-.contacts_list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--space-md);
-}
-
-/* Блок contact-item */
-.contact-item {
-    padding: var(--space-md);
-    background: var(--color-light);
-    border-radius: var(--radius-md);
-    text-align: center;
-}
-
-.contact-item_title {
-    color: var(--color-main);
-    margin-bottom: var(--space-sm);
-    font-size: 1.1rem;
-}
-
-.contact-item_value {
-    color: var(--color-accent);
-    font-weight: bold;
-}
-
-/* ==== МОДАЛЬНОЕ ОКНО (из занятия 10) ==== */
-dialog::backdrop {
-    background: rgba(0, 0, 0, 0.6);
-    animation: fadeIn 0.3s ease;
-}
-
-dialog {
-    border: none;
-    border-radius: var(--radius-lg);
-    padding: 0;
-    box-shadow: var(--shadow-lg);
-    animation: slideIn 0.3s ease;
-    max-width: 500px;
-    width: 90vw;
-    max-height: 90vh;
-    overflow-y: auto;
-}
-
-.modal-header {
-    background: var(--color-header-gradient);
-    color: var(--color-white);
-    padding: 1.5rem;
-    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+.footer-text {
     margin: 0;
-}
-
-.modal-header h2 {
-    margin: 0;
-    color: var(--color-white);
-    font-size: 1.5rem;
-}
-
-.modal-content {
-    padding: var(--space-lg);
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    color: var(--color-main);
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-    width: 100%;
-    padding: 0.75rem;
-    border: 2px solid #e9ecef;
-    border-radius: var(--radius-sm);
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
-    box-sizing: border-box;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--color-primary);
-}
-
-.form-group textarea {
-    min-height: 100px;
-    resize: vertical;
-}
-
-.modal-actions {
-    display: flex;
-    gap: 1rem;
-    justify-content: flex-end;
-    margin-top: var(--space-lg);
-}
-
-.btn {
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: var(--radius-sm);
-    cursor: pointer;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    font-weight: 600;
-}
-
-.btn-primary {
-    background: var(--color-bg-gradient);
-    color: var(--color-white);
-}
-
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-}
-
-.btn-secondary {
-    background: #f8f9fa;
-    color: var(--color-main);
-    border: 2px solid #e9ecef;
-}
-
-.btn-secondary:hover {
-    background: #e9ecef;
-}
-
-.required {
-    color: var(--color-danger);
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(-50px) scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
+    font-size: var(--font-size-sm);
+    opacity: 0.9;
 }
 
 /* ==== АДАПТИВНОСТЬ ==== */
-/* Новое: Медиа-запросы для мобильных устройств */
 @media (max-width: 768px) {
     .nav-list {
         flex-direction: column;
-        gap: 10px;
+        gap: var(--space-sm);
         align-items: center;
     }
     
-    .skills-grid {
-        grid-template-columns: 1fr;
+    .skills-list {
+        grid-template-columns: repeat(2, 1fr);
     }
     
-    .experience-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .products-grid {
+    .projects-grid {
         grid-template-columns: 1fr;
     }
     
@@ -584,59 +344,45 @@ dialog {
         padding: var(--space-md);
     }
     
+    .header {
+        padding: var(--space-lg);
+        font-size: var(--font-size-xl);
+    }
+    
     .profile-photo {
         width: 180px;
         height: 230px;
     }
     
-    /* Адаптивность для БЭМ компонентов */
-    .nav_list {
-        flex-direction: column;
+    .profile-info h2 {
+        font-size: var(--font-size-lg);
     }
     
-    .skills_list {
-        justify-content: center;
-    }
-    
-    .projects_grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .profile_card {
-        flex-direction: column;
-        text-align: center;
+    .profile-group {
+        font-size: var(--font-size-md);
     }
 }
 
 @media (max-width: 480px) {
-    .header {
-        padding: var(--space-md);
-        font-size: 24px;
+    .skills-list {
+        grid-template-columns: 1fr;
     }
     
     .nav-link {
         padding: var(--space-sm) var(--space-md);
     }
     
-    .profile-title {
-        font-size: 28px;
+    .header h1 {
+        font-size: var(--font-size-lg);
     }
     
-    .section-title {
-        font-size: 24px;
+    .about-title,
+    .skills-title,
+    .projects-title {
+        font-size: var(--font-size-lg);
     }
     
-    /* Адаптивность для модального окна */
-    dialog {
-        margin: 1rem;
-        width: calc(100vw - 2rem);
-    }
-    
-    .modal-actions {
-        flex-direction: column;
-    }
-    
-    .btn {
-        width: 100%;
+    .footer {
+        padding: var(--space-lg);
     }
 }
