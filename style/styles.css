@@ -519,3 +519,45 @@ body {
         grid-template-columns: 1fr;
     }
 }
+/* ===== ДОПОЛНИТЕЛЬНЫЕ СТИЛИ ДЛЯ 11-ГО ЗАНЯТИЯ ===== */
+
+/* Модификатор для активного пункта навигации */
+.nav-item--active .nav-link {
+    background: #667eea;
+    font-weight: 600;
+}
+
+/* Модификаторы для навыков */
+.skill-tag--html {
+    background: linear-gradient(135deg, #e34c26 0%, #c4411e 100%) !important;
+}
+
+.skill-tag--css {
+    background: linear-gradient(135deg, #264de4 0%, #1e3dc4 100%) !important;
+}
+
+.skill-tag--js {
+    background: linear-gradient(135deg, #f0db4f 0%, #e6c92c 100%) !important;
+    color: #2c3e50 !important;
+}
+
+.skill-tag--other {
+    background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%) !important;
+}
+
+/* CSS переменные для БЭМ (добавь в начало файла) */
+:root {
+    --color-main: #2c3e50;
+    --color-accent: #667eea;
+    --color-light: #f8f9fa;
+    --color-dark: #34495e;
+    --color-text: #2c3e50;
+    --color-white: #ffffff;
+    --color-secondary: #764ba2;
+
+    --shadow: 0 2px 5px rgba(0,0,0,0.1);
+    --radius: 8px;
+    --space-sm: 10px;
+    --space-md: 20px;
+    --space-lg: 30px;
+}
