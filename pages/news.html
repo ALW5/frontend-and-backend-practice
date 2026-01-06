@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новости - Семестровая работа</title>
+    <link rel="stylesheet" href="../style/styles.css">
+</head>
+<body>
+    <div class="page-container">
+        <!-- Семантический тег header -->
+        <header class="header">
+            <h1>Новости</h1>
+        </header>
+
+        <!-- Семантический тег nav -->
+        <nav class="nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
+                <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
+                <li class="nav-item"><a class="nav-link" href="practices.html">Практики</a></li>
+                <li class="nav-item"><a class="nav-link" href="goods.html">Товары</a></li>
+                <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+
+        <!-- Семантический тег main для основного содержимого -->
+        <main class="content">
+            <h1 class="section-title">Последние новости</h1>
+            
+            <!-- Используем CSS Grid для сетки новостей -->
+            <div class="news-grid">
+                <!-- Семантический тег article для каждой новости -->
+                <article class="news-card">
+                    <h2 class="news-title">Новость 1: Начало</h2>
+                    <p class="news-meta"><small>09.12.2025 12:32 | Автор: Манжиков Д.С.</small></p>
+                    <p class="news-text">Начал выполнять задания по фронтенд и бэкенд разработки. Осваиваю семантические теги и CSS Grid для создания современных адаптивных интерфейсов.</p>
+                    <a href="#" class="news-link">Читать далее...</a>
+                </article>
+                
+                <article class="news-card">
+                    <h2 class="news-title">Новость 2: Продолжение</h2>
+                    <p class="news-meta"><small>12.12.2025 23:35 | Автор: Манжиков Д.С.</small></p>
+                    <p class="news-text">Продолжаю работу над проектом. Изучил основы навигации и принципы построения сеток с помощью Flex и Grid. Реализую адаптивную верстку для мобильных устройств.</p>
+                    <a href="#" class="news-link">Читать далее...</a>
+                </article>
+                
+                <article class="news-card">
+                    <h2 class="news-title">Новость 3: Вроде успеваю</h2>
+                    <p class="news-meta"><small>12.12.2025 23:35 | Автор: Манжиков Д.С.</small></p>
+                    <p class="news-text">Работа над семестровым проектом продвигается по графику. Уже реализовал основные страницы: главную, новости, товары и контакты. Осталось доработать мелочи.</p>
+                    <a href="#" class="news-link">Читать далее...</a>
+                </article>
+            </div>
+        </main>
+
+        <!-- Семантический тег footer -->
+        <footer class="footer">
+        </footer>
+    </div>
+</body>
+</html>
