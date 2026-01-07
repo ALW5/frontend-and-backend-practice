@@ -4,87 +4,141 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Товары - Семестровая работа</title>
-    <link rel="stylesheet" href="../style/styles.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .header {
+            background-color: #667eea;
+            color: white;
+        }
+        .nav-link.active {
+            font-weight: bold;
+            color: #667eea !important;
+        }
+        .product-image {
+            height: 200px;
+            object-fit: cover;
+            width: 100%;
+        }
+        .product-card {
+            border: 1px solid #dee2e6;
+            border-radius: 0.5rem;
+            transition: box-shadow 0.3s;
+        }
+        .product-card:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .footer {
+            background-color: #343a40;
+            color: white;
+        }
+    </style>
 </head>
 <body>
-    <div class="page-container">
+    <div class="container-fluid p-0">
         <!-- ШАПКА -->
-        <header class="header">
-            <h1>Наши товары</h1>
+        <header class="header py-4">
+            <div class="container">
+                <h1 class="text-center mb-0">Наши товары</h1>
+            </div>
         </header>
 
         <!-- НАВИГАЦИЯ -->
-        <nav class="nav">
-            <ul class="nav-list">
-                <li class="nav-item">
-                    <a class="nav-link" href="../index.html">Главная</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="news.html">Новости</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="practices.html">Практики</a>
-                </li>
-                <li class="nav-item nav-item--active">
-                    <a class="nav-link" href="goods.html">Товары</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="contacts.html">Контакты</a>
-                </li>
-            </ul>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+            <div class="container">
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="../index.html">Главная</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="news.html">Новости</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="practices.html">Практики</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link active" href="goods.html">Товары</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="contacts.html">Контакты</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </nav>
 
         <!-- ОСНОВНОЙ КОНТЕНТ -->
-        <main class="content">
+        <main class="container my-4">
             <!-- Заголовок раздела -->
-            <section class="section-header">
-                <h2 class="section-title">Наш ассортимент</h2>
-                <p class="section-description">
+            <section class="mb-5 text-center">
+                <h2 class="h3 mb-3">Наш ассортимент</h2>
+                <p class="text-muted">
                     Мы предлагаем широкий ассортимент качественных товаров по доступным ценам
                 </p>
             </section>
 
             <!-- Сетка товаров -->
-            <div class="products-grid">
+            <div class="row g-4">
                 <!-- Товар 1 -->
-                <div class="product-card">
-                    <img class="product-image" src="../images/goods1.png" alt="Drow Ranger">
-                    <div class="product-info">
-                        <h3 class="product-name">Drow Ranger</h3>
-                        <p class="product-description">Arcane Drow Ranger - коллекционная фигурка</p>
-                        <div class="product-price">$49.99</div>
-                        <button class="product-button">Добавить в корзину</button>
+                <div class="col-md-4">
+                    <div class="card product-card h-100">
+                        <img src="../images/goods1.png" class="product-image card-img-top" alt="Drow Ranger">
+                        <div class="card-body">
+                            <h3 class="card-title h5">Drow Ranger</h3>
+                            <p class="card-text text-muted">Arcane Drow Ranger - коллекционная фигурка</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="h5 text-primary mb-0">$49.99</span>
+                                <button class="btn btn-primary">Добавить в корзину</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Товар 2 -->
-                <div class="product-card">
-                    <img class="product-image" src="../images/goods2.png" alt="Phantom Assassin">
-                    <div class="product-info">
-                        <h3 class="product-name">Phantom Assassin</h3>
-                        <p class="product-description">Arcane Phantom Assassin - эксклюзивная модель</p>
-                        <div class="product-price">$59.99</div>
-                        <button class="product-button">Добавить в корзину</button>
+                <div class="col-md-4">
+                    <div class="card product-card h-100">
+                        <img src="../images/goods2.png" class="product-image card-img-top" alt="Phantom Assassin">
+                        <div class="card-body">
+                            <h3 class="card-title h5">Phantom Assassin</h3>
+                            <p class="card-text text-muted">Arcane Phantom Assassin - эксклюзивная модель</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="h5 text-primary mb-0">$59.99</span>
+                                <button class="btn btn-primary">Добавить в корзину</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Товар 3 -->
-                <div class="product-card">
-                    <img class="product-image" src="../images/goods3.png" alt="Lina">
-                    <div class="product-info">
-                        <h3 class="product-name">Lina</h3>
-                        <p class="product-description">Arcane Lina - ограниченная серия</p>
-                        <div class="product-price">$54.99</div>
-                        <button class="product-button">Добавить в корзину</button>
+                <div class="col-md-4">
+                    <div class="card product-card h-100">
+                        <img src="../images/goods3.png" class="product-image card-img-top" alt="Lina">
+                        <div class="card-body">
+                            <h3 class="card-title h5">Lina</h3>
+                            <p class="card-text text-muted">Arcane Lina - ограниченная серия</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="h5 text-primary mb-0">$54.99</span>
+                                <button class="btn btn-primary">Добавить в корзину</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </main>
 
         <!-- ПОДВАЛ -->
-        <footer class="footer">
-            <p class="footer-text">&copy;Все права защищены.</p>
+        <footer class="footer py-4 mt-5">
+            <div class="container text-center">
+                <p class="mb-0">&copy;Все права защищены.</p>
+            </div>
         </footer>
     </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
