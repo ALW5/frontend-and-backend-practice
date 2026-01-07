@@ -2,21 +2,26 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Главная - Портфолио Манжикова Дольгана</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Свои стили -->
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
-<body class="bg-light">
+<body class="bg-light page">
+    <!-- Skip link для доступности -->
+    <a class="skip-link" href="#main-content">Перейти к основному содержимому</a>
+    
     <div class="container-fluid p-0">
         <!-- Header -->
         <header class="bg-primary text-white py-4">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col">
-                        <h1 class="h3 mb-1">Моё Портфолио</h1>
+                        <h1 class="h3 mb-1 section-title">Моё Портфолио</h1>
                         <p class="mb-0 opacity-75">Студент разработчик</p>
                     </div>
                     <div class="col-auto">
@@ -27,24 +32,33 @@
         </header>
 
         <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-nav">
             <div class="container">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                        aria-label="Переключить навигацию">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
-                         <li class="nav-item">
-                            <a class="nav-link active" href="index.html">Главная</a>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.html" aria-current="page">
+                                <i class="bi bi-house me-1"></i>Главная
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="pages/projects.html">Проекты</a>
+                            <a class="nav-link" href="pages/projects.html">
+                                <i class="bi bi-folder me-1"></i>Проекты
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="pages/diary.html">Дневник</a>
+                            <a class="nav-link" href="pages/diary.html">
+                                <i class="bi bi-journal-text me-1"></i>Дневник
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="pages/contacts.html">Контакты</a>
+                            <a class="nav-link" href="pages/contacts.html">
+                                <i class="bi bi-telephone me-1"></i>Контакты
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -52,16 +66,27 @@
         </nav>
 
         <!-- Main Content -->
-        <main class="container my-4">
+        <main id="main-content" class="container my-4 main-content">
             <!-- Profile Section -->
             <section class="mb-5">
                 <div class="card shadow-sm">
                     <div class="card-body p-4">
                         <div class="row align-items-center">
                             <div class="col-md-3 text-center mb-3 mb-md-0">
-                                <img src="images/myphoto.png" alt="Фото Манжикова Дольгана" 
-                                     class="img-fluid rounded-circle" 
-                                     style="width: 150px; height: 150px; object-fit: cover;">
+                                <picture>
+                                    <!-- AVIF формат (современный) -->
+                                    <source type="image/avif" srcset="images/myphoto.avif">
+                                    <!-- WebP формат (поддержка шире) -->
+                                    <source type="image/webp" srcset="images/myphoto.webp">
+                                    <!-- Фолбэк PNG -->
+                                    <img src="images/myphoto.png" 
+                                         alt="Фото Манжикова Дольгана" 
+                                         class="img-fluid rounded-circle hero_photo"
+                                         width="200" 
+                                         height="200"
+                                         loading="eager"
+                                         fetchpriority="high">
+                                </picture>
                             </div>
                             <div class="col-md-9">
                                 <h2 class="card-title h4 text-primary">Манжиков Дольган Саналович</h2>
@@ -164,7 +189,7 @@
             </section>
 
             <!-- Projects Section -->
-            <section class="mb-5">
+            <section class="mb-5 projects-area">
                 <div class="card shadow-sm">
                     <div class="card-header bg-light">
                         <h3 class="card-title h5 mb-0">
@@ -173,53 +198,68 @@
                         </h3>
                     </div>
                     <div class="card-body">
-                        <div class="row g-3">
-                            <div class="col-md-4">
-                                <div class="card h-100">
-                                    <img src="images/project1.jpg" class="card-img-top" alt="Личный сайт" 
-                                         style="height: 150px; object-fit: cover;">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Личный сайт</h5>
-                                        <p class="card-text small text-muted">
-                                            Сайт-портфолио на HTML, CSS и Bootstrap с адаптивным дизайном.
-                                        </p>
-                                        <div class="mb-2">
-                                            <span class="badge bg-primary">HTML</span>
-                                            <span class="badge bg-primary">CSS</span>
-                                            <span class="badge bg-primary">Bootstrap</span>
-                                        </div>
+                        <div class="projects-grid">
+                            <div class="project-card card h-100">
+                                <picture>
+                                    <source type="image/webp" srcset="images/project1.webp">
+                                    <img src="images/project1.jpg" 
+                                         class="card-img-top" 
+                                         alt="Личный сайт"
+                                         width="400"
+                                         height="150"
+                                         loading="lazy">
+                                </picture>
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title">Личный сайт</h5>
+                                    <p class="card-text small text-muted flex-grow-1">
+                                        Сайт-портфолио на HTML, CSS и Bootstrap с адаптивным дизайном.
+                                    </p>
+                                    <div class="mb-2">
+                                        <span class="badge bg-primary">HTML</span>
+                                        <span class="badge bg-primary">CSS</span>
+                                        <span class="badge bg-primary">Bootstrap</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="card h-100">
-                                    <img src="images/project2.jpg" class="card-img-top" alt="Тодо приложение" 
-                                         style="height: 150px; object-fit: cover;">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Тодо приложение</h5>
-                                        <p class="card-text small text-muted">
-                                            Приложение для управления задачами с использованием JavaScript.
-                                        </p>
-                                        <div class="mb-2">
-                                            <span class="badge bg-success">JavaScript</span>
-                                            <span class="badge bg-success">LocalStorage</span>
-                                        </div>
+                            <div class="project-card card h-100">
+                                <picture>
+                                    <source type="image/webp" srcset="images/project2.webp">
+                                    <img src="images/project2.jpg" 
+                                         class="card-img-top" 
+                                         alt="Тодо приложение"
+                                         width="400"
+                                         height="150"
+                                         loading="lazy">
+                                </picture>
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title">Тодо приложение</h5>
+                                    <p class="card-text small text-muted flex-grow-1">
+                                        Приложение для управления задачами с использованием JavaScript.
+                                    </p>
+                                    <div class="mb-2">
+                                        <span class="badge bg-success">JavaScript</span>
+                                        <span class="badge bg-success">LocalStorage</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="card h-100">
-                                    <img src="images/project3.jpg" class="card-img-top" alt="Интернет-магазин" 
-                                         style="height: 150px; object-fit: cover;">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Интернет-магазин</h5>
-                                        <p class="card-text small text-muted">
-                                            Прототип интернет-магазина с корзиной товаров и фильтрацией.
-                                        </p>
-                                        <div class="mb-2">
-                                            <span class="badge bg-info">React</span>
-                                            <span class="badge bg-info">API</span>
-                                        </div>
+                            <div class="project-card card h-100">
+                                <picture>
+                                    <source type="image/webp" srcset="images/project3.webp">
+                                    <img src="images/project3.jpg" 
+                                         class="card-img-top" 
+                                         alt="Интернет-магазин"
+                                         width="400"
+                                         height="150"
+                                         loading="lazy">
+                                </picture>
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title">Интернет-магазин</h5>
+                                    <p class="card-text small text-muted flex-grow-1">
+                                        Прототип интернет-магазина с корзиной товаров и фильтрацией.
+                                    </p>
+                                    <div class="mb-2">
+                                        <span class="badge bg-info">React</span>
+                                        <span class="badge bg-info">API</span>
                                     </div>
                                 </div>
                             </div>
@@ -230,15 +270,15 @@
         </main>
 
         <!-- Footer -->
-        <footer class="bg-dark text-white py-4 mt-5">
+        <footer class="bg-dark text-white py-4 mt-5 footer">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-6">
                         <p class="mb-0">&copy; 2025 Портфолио Манжикова Дольгана. Все права защищены.</p>
                     </div>
                     <div class="col-md-6 text-md-end">
-                        <a href="pages/contacts.html" class="text-white text-decoration-none me-3">Контакты</a>
-                        <a href="#" class="text-white text-decoration-none">Политика конфиденциальности</a>
+                        <a href="pages/contacts.html" class="text-white text-decoration-none me-3 btn-footer">Контакты</a>
+                        <a href="#" class="text-white text-decoration-none btn-footer">Политика конфиденциальности</a>
                     </div>
                 </div>
             </div>
