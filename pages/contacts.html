@@ -3,41 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Контакты - Портфолио</title>
+    <meta name="description" content="Страница контактов студента Манжикова Дольгана Саналовича">
+    <title>Контакты - Портфолио студента Манжикова Д.С.</title>
+    
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
     <style>
+        /* Базовые стили доступности */
+        :focus {
+            outline: 3px solid #2563eb !important;
+            outline-offset: 2px !important;
+        }
+        
+        :focus:not(:focus-visible) {
+            outline: none !important;
+        }
+        
+        :focus-visible {
+            outline: 3px solid #2563eb !important;
+            outline-offset: 2px !important;
+        }
+        
+        /* Skip link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 1rem;
+            background: #2563eb;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            z-index: 10000;
+            transition: top 0.3s ease;
+        }
+        
+        .skip-link:focus {
+            top: 1rem;
+        }
+        
+        /* Визуально скрытые элементы */
+        .visually-hidden {
+            position: absolute !important;
+            width: 1px !important;
+            height: 1px !important;
+            padding: 0 !important;
+            margin: -1px !important;
+            overflow: hidden !important;
+            clip: rect(0, 0, 0, 0) !important;
+            white-space: nowrap !important;
+            border: 0 !important;
+        }
+        
+        /* Основные стили */
         body {
             background-color: #f8f9fa;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
         }
+        
         .header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
         }
+        
         .nav-link.active {
             font-weight: bold;
-            color: #667eea !important;
+            background-color: rgba(102, 126, 234, 0.1) !important;
+            border-radius: 0.375rem;
         }
+        
+        .nav-link:focus {
+            background-color: rgba(102, 126, 234, 0.2) !important;
+        }
+        
         .contact-info-card {
             border-left: 4px solid #667eea;
             background-color: #f8f9ff;
         }
+        
         .form-control:focus {
             border-color: #667eea;
             box-shadow: 0 0 0 0.25rem rgba(102, 126, 234, 0.25);
         }
+        
         .footer {
             background-color: #343a40;
             color: white;
         }
+        
+        /* Минимальные размеры для touch устройств */
+        @media (pointer: coarse) {
+            .btn, .nav-link, .form-check-input {
+                min-height: 44px;
+                min-width: 44px;
+            }
+        }
+        
+        /* Поддержка prefers-reduced-motion */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        /* Высокий контраст */
+        @media (prefers-contrast: high) {
+            .header {
+                background: #000080 !important;
+            }
+            
+            :focus {
+                outline: 3px solid #000000 !important;
+            }
+        }
+        
+        /* Модальное окно */
+        .modal-content:focus {
+            outline: none;
+        }
+        
+        /* Индикаторы ошибок */
+        .is-invalid {
+            border-color: #dc3545 !important;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right calc(0.375em + 0.1875rem) center;
+            background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+        }
+        
+        .form-text {
+            font-size: 0.875rem;
+        }
     </style>
 </head>
 <body>
+    <!-- Skip link для клавиатурных пользователей -->
+    <a href="#main-content" class="skip-link" id="skip-link">
+        Перейти к основному содержимому
+    </a>
+    
     <div class="container-fluid p-0">
-        <!-- Header -->
-        <header class="header py-4">
+        <!-- Header с ARIA landmarks -->
+        <header class="header py-4" role="banner">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col">
@@ -45,38 +160,49 @@
                         <p class="mb-0 opacity-75">Манжиков Дольган Саналович</p>
                     </div>
                     <div class="col-auto">
-                        <span class="badge bg-light text-primary">ЭФБО-08-24</span>
+                        <span class="badge bg-light text-primary" aria-label="Группа ЭФБО-08-24">ЭФБО-08-24</span>
                     </div>
                 </div>
             </div>
         </header>
 
-        <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <!-- Navigation с ARIA -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm" 
+             aria-label="Основная навигация"
+             role="navigation">
             <div class="container">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <button class="navbar-toggler" 
+                        type="button" 
+                        data-bs-toggle="collapse" 
+                        data-bs-target="#navbarNav"
+                        aria-controls="navbarNav"
+                        aria-expanded="false"
+                        aria-label="Переключить навигацию">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item mx-2">
-                            <a class="nav-link" href="../index.html">
-                                <i class="bi bi-house me-1"></i>Главная
+                            <a class="nav-link" href="../index.html" aria-label="Перейти на главную страницу">
+                                <i class="bi bi-house me-1" aria-hidden="true"></i>Главная
                             </a>
                         </li>
                         <li class="nav-item mx-2">
-                            <a class="nav-link" href="projects.html">
-                                <i class="bi bi-folder me-1"></i>Проекты
+                            <a class="nav-link" href="projects.html" aria-label="Перейти к проектам">
+                                <i class="bi bi-folder me-1" aria-hidden="true"></i>Проекты
                             </a>
                         </li>
                         <li class="nav-item mx-2">
-                            <a class="nav-link" href="diary.html">
-                                <i class="bi bi-journal-text me-1"></i>Дневник
+                            <a class="nav-link" href="diary.html" aria-label="Перейти к дневнику">
+                                <i class="bi bi-journal-text me-1" aria-hidden="true"></i>Дневник
                             </a>
                         </li>
                         <li class="nav-item mx-2">
-                            <a class="nav-link active" href="contacts.html">
-                                <i class="bi bi-telephone me-1"></i>Контакты
+                            <a class="nav-link active" 
+                               href="contacts.html" 
+                               aria-current="page"
+                               aria-label="Текущая страница: Контакты">
+                                <i class="bi bi-telephone me-1" aria-hidden="true"></i>Контакты
                             </a>
                         </li>
                     </ul>
@@ -85,67 +211,157 @@
         </nav>
 
         <!-- Main Content -->
-        <main class="container my-5">
+        <main class="container my-5" id="main-content" role="main">
             <div class="row">
                 <div class="col-lg-8">
-                    <!-- Contact Form -->
+                    <!-- Contact Form с улучшенной доступностью -->
                     <div class="card shadow-sm mb-4">
                         <div class="card-header bg-white border-bottom-0 pt-4">
                             <h2 class="h4 mb-0 text-primary">
-                                <i class="bi bi-envelope me-2"></i>Свяжитесь со мной
+                                <i class="bi bi-envelope me-2" aria-hidden="true"></i>Свяжитесь со мной
                             </h2>
+                            <p class="text-muted mt-2 mb-0" id="form-description">
+                                Заполните форму ниже, и я отвечу вам в ближайшее время
+                            </p>
                         </div>
                         <div class="card-body">
-                            <form id="contactForm" novalidate>
-                                <!-- Name Field -->
+                            <form id="contactForm" 
+                                  novalidate 
+                                  aria-labelledby="form-title"
+                                  aria-describedby="form-description">
+                                
+                                <!-- Name Field с ARIA -->
                                 <div class="mb-4">
                                     <label for="name" class="form-label fw-bold">
-                                        <i class="bi bi-person me-1"></i>Имя
+                                        <i class="bi bi-person me-1" aria-hidden="true"></i>Имя
+                                        <span class="text-danger" aria-hidden="true">*</span>
+                                        <span class="visually-hidden">обязательное поле</span>
                                     </label>
                                     <input type="text" 
                                            class="form-control form-control-lg" 
                                            id="name" 
+                                           name="name"
                                            placeholder="Введите ваше имя"
-                                           required>
-                                    <div class="invalid-feedback">
+                                           required
+                                           aria-required="true"
+                                           aria-describedby="name-help name-error"
+                                           autocomplete="name">
+                                    <div id="name-help" class="form-text text-muted">
+                                        Пожалуйста, укажите ваше полное имя
+                                    </div>
+                                    <div id="name-error" 
+                                         class="invalid-feedback" 
+                                         role="alert"
+                                         aria-live="polite">
                                         Пожалуйста, введите ваше имя.
                                     </div>
                                 </div>
 
-                                <!-- Email Field -->
+                                <!-- Email Field с ARIA -->
                                 <div class="mb-4">
                                     <label for="email" class="form-label fw-bold">
-                                        <i class="bi bi-envelope me-1"></i>Email
+                                        <i class="bi bi-envelope me-1" aria-hidden="true"></i>Email
+                                        <span class="text-danger" aria-hidden="true">*</span>
+                                        <span class="visually-hidden">обязательное поле</span>
                                     </label>
                                     <input type="email" 
                                            class="form-control form-control-lg" 
                                            id="email" 
+                                           name="email"
                                            placeholder="example@email.com"
-                                           required>
-                                    <div class="invalid-feedback">
+                                           required
+                                           aria-required="true"
+                                           aria-describedby="email-help email-error"
+                                           autocomplete="email">
+                                    <div id="email-help" class="form-text text-muted">
+                                        Мы не передаем ваш email третьим лицам
+                                    </div>
+                                    <div id="email-error" 
+                                         class="invalid-feedback" 
+                                         role="alert"
+                                         aria-live="polite">
                                         Пожалуйста, введите корректный email адрес.
                                     </div>
                                 </div>
 
-                                <!-- Message Field -->
+                                <!-- Subject Field -->
                                 <div class="mb-4">
-                                    <label for="message" class="form-label fw-bold">
-                                        <i class="bi bi-chat-left-text me-1"></i>Сообщение
+                                    <label for="subject" class="form-label fw-bold">
+                                        <i class="bi bi-chat-dots me-1" aria-hidden="true"></i>Тема
                                     </label>
-                                    <textarea class="form-control form-control-lg" 
-                                              id="message" 
-                                              rows="5"
-                                              placeholder="Напишите ваше сообщение..."
-                                              required></textarea>
-                                    <div class="invalid-feedback">
-                                        Пожалуйста, введите ваше сообщение.
+                                    <select class="form-select form-select-lg" 
+                                            id="subject" 
+                                            name="subject"
+                                            aria-describedby="subject-help">
+                                        <option value="" selected>Выберите тему</option>
+                                        <option value="project">Сотрудничество по проекту</option>
+                                        <option value="question">Вопрос по учебе</option>
+                                        <option value="feedback">Обратная связь</option>
+                                        <option value="other">Другое</option>
+                                    </select>
+                                    <div id="subject-help" class="form-text text-muted">
+                                        Выберите тему вашего обращения
                                     </div>
                                 </div>
 
-                                <!-- Submit Button -->
+                                <!-- Message Field с ARIA -->
+                                <div class="mb-4">
+                                    <label for="message" class="form-label fw-bold">
+                                        <i class="bi bi-chat-left-text me-1" aria-hidden="true"></i>Сообщение
+                                        <span class="text-danger" aria-hidden="true">*</span>
+                                        <span class="visually-hidden">обязательное поле</span>
+                                    </label>
+                                    <textarea class="form-control form-control-lg" 
+                                              id="message" 
+                                              name="message"
+                                              rows="5"
+                                              placeholder="Напишите ваше сообщение..."
+                                              required
+                                              aria-required="true"
+                                              aria-describedby="message-help message-error"
+                                              maxlength="1000"></textarea>
+                                    <div id="message-help" class="form-text text-muted">
+                                        Опишите ваш вопрос или предложение подробно. Максимум 1000 символов.
+                                        <span id="char-count" class="badge bg-secondary">0/1000</span>
+                                    </div>
+                                    <div id="message-error" 
+                                         class="invalid-feedback" 
+                                         role="alert"
+                                         aria-live="polite">
+                                        Пожалуйста, введите ваше сообщение (минимум 10 символов).
+                                    </div>
+                                </div>
+
+                                <!-- Privacy Checkbox -->
+                                <div class="mb-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" 
+                                               type="checkbox" 
+                                               id="privacy" 
+                                               name="privacy"
+                                               required
+                                               aria-required="true"
+                                               aria-describedby="privacy-error">
+                                        <label class="form-check-label" for="privacy">
+                                            Я согласен с обработкой персональных данных
+                                            <span class="text-danger" aria-hidden="true">*</span>
+                                            <span class="visually-hidden">обязательное поле</span>
+                                        </label>
+                                        <div id="privacy-error" 
+                                             class="invalid-feedback" 
+                                             role="alert"
+                                             aria-live="polite">
+                                            Вы должны согласиться с обработкой персональных данных.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Submit Button с ARIA -->
                                 <div class="d-grid">
-                                    <button type="submit" class="btn btn-primary btn-lg">
-                                        <i class="bi bi-send me-2"></i>Отправить сообщение
+                                    <button type="submit" 
+                                            class="btn btn-primary btn-lg"
+                                            aria-label="Отправить форму обратной связи">
+                                        <i class="bi bi-send me-2" aria-hidden="true"></i>Отправить сообщение
                                     </button>
                                 </div>
                             </form>
@@ -154,46 +370,52 @@
                 </div>
 
                 <div class="col-lg-4">
-                    <!-- Contact Information -->
+                    <!-- Contact Information с семантической разметкой -->
                     <div class="card shadow-sm contact-info-card">
                         <div class="card-header bg-white border-bottom-0 pt-4">
                             <h3 class="h5 mb-0 text-primary">
-                                <i class="bi bi-info-circle me-2"></i>Контакты
+                                <i class="bi bi-info-circle me-2" aria-hidden="true"></i>Мои контакты
                             </h3>
                         </div>
                         <div class="card-body">
                             <!-- Email -->
-                            <div class="d-flex align-items-start mb-4">
-                                <div class="bg-primary bg-opacity-10 p-2 rounded me-3">
+                            <div class="d-flex align-items-start mb-4" role="listitem">
+                                <div class="bg-primary bg-opacity-10 p-2 rounded me-3" aria-hidden="true">
                                     <i class="bi bi-envelope-fill text-primary fs-5"></i>
                                 </div>
                                 <div>
-                                    <h4 class="h6 mb-1">Email</h4>
-                                    <a href="mailto:student@edu.ru" class="text-decoration-none">
+                                    <h4 class="h6 mb-1">Электронная почта</h4>
+                                    <a href="mailto:dolganmanzhikov@yandex.ru" 
+                                       class="text-decoration-none"
+                                       aria-label="Написать письмо на dolganmanzhikov@yandex.ru">
                                         dolganmanzhikov@yandex.ru
                                     </a>
                                 </div>
                             </div>
 
                             <!-- GitHub -->
-                            <div class="d-flex align-items-start mb-4">
-                                <div class="bg-dark bg-opacity-10 p-2 rounded me-3">
+                            <div class="d-flex align-items-start mb-4" role="listitem">
+                                <div class="bg-dark bg-opacity-10 p-2 rounded me-3" aria-hidden="true">
                                     <i class="bi bi-github text-dark fs-5"></i>
                                 </div>
                                 <div>
-                                    <h4 class="h6 mb-1">GitHub</h4>
+                                    <h4 class="h6 mb-1">GitHub профиль</h4>
                                     <a href="https://github.com/ALW5" 
                                        target="_blank" 
-                                       class="text-decoration-none">
+                                       rel="noopener noreferrer"
+                                       class="text-decoration-none"
+                                       aria-label="Перейти на GitHub профиль ALW5 (откроется в новой вкладке)">
                                         github.com/ALW5
+                                        <span class="visually-hidden">(откроется в новой вкладке)</span>
                                     </a>
                                 </div>
                             </div>
 
                             <!-- Location -->
-                            <div class="d-flex align-items-start mb-4">
-                                <div class="bg-success bg-opacity-10 p-2 rounded me-3">
+                            <div class="d-flex align-items-start mb-4" role="listitem">
+                                <div class="bg-success bg-opacity-10 p-2 rounded me-3" aria-hidden="true">
                                     <i class="bi bi-geo-alt-fill text-success fs-5"></i>
+                                    <span class="visually-hidden">Местоположение:</span>
                                 </div>
                                 <div>
                                     <h4 class="h6 mb-1">Местоположение</h4>
@@ -201,72 +423,325 @@
                                 </div>
                             </div>
 
-                            <!-- Phone (optional) -->
-                            <div class="d-flex align-items-start">
-                                <div class="bg-info bg-opacity-10 p-2 rounded me-3">
+                            <!-- Phone -->
+                            <div class="d-flex align-items-start" role="listitem">
+                                <div class="bg-info bg-opacity-10 p-2 rounded me-3" aria-hidden="true">
                                     <i class="bi bi-telephone-fill text-info fs-5"></i>
+                                    <span class="visually-hidden">Телефон:</span>
                                 </div>
                                 <div>
                                     <h4 class="h6 mb-1">Телефон</h4>
-                                    <p class="mb-0">+7 (123) 999-99-99</p>
+                                    <p class="mb-0">
+                                        <a href="tel:+71239999999" 
+                                           class="text-decoration-none"
+                                           aria-label="Позвонить по номеру +7 123 999-99-99">
+                                            +7 (123) 999-99-99
+                                        </a>
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Response Time Info -->
-                    <div class="alert alert-info mt-4" role="alert">
-                        <i class="bi bi-clock-history me-2"></i>
-                        <strong>Время ответа:</strong> Обычно отвечаю в течение 24 часов
+                    <div class="alert alert-info mt-4" role="status">
+                        <i class="bi bi-clock-history me-2" aria-hidden="true"></i>
+                        <div>
+                            <strong>Время ответа:</strong> 
+                            <span>Обычно отвечаю в течение 24 часов в рабочие дни</span>
+                        </div>
+                    </div>
+
+                    <!-- Accessibility Info -->
+                    <div class="alert alert-light border mt-4" role="complementary" aria-label="Информация о доступности">
+                        <i class="bi bi-universal-access me-2 text-primary" aria-hidden="true"></i>
+                        <small class="text-muted">
+                            Эта страница оптимизирована для людей с ограниченными возможностями.
+                            Если у вас возникли трудности, пожалуйста, свяжитесь со мной.
+                        </small>
                     </div>
                 </div>
             </div>
         </main>
 
-        <!-- Footer -->
-        <footer class="footer py-4 mt-5">
+        <!-- Footer с ARIA landmarks -->
+        <footer class="footer py-4 mt-5" role="contentinfo">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-6">
-                        <p class="mb-0">&copy; 2025 Портфолио студента. Все права защищены.</p>
+                        <p class="mb-0">&copy; 2025 Портфолио студента Манжикова Д.С. Все права защищены.</p>
                     </div>
                     <div class="col-md-6 text-md-end">
-                        <a href="contacts.html" class="text-white text-decoration-none me-3">Контакты</a>
-                        <a href="#" class="text-white text-decoration-none">Политика конфиденциальности</a>
+                        <a href="contacts.html" 
+                           class="text-white text-decoration-none me-3"
+                           aria-label="Перейти на страницу контактов">
+                            Контакты
+                        </a>
+                        <a href="#" 
+                           class="text-white text-decoration-none"
+                           aria-label="Просмотреть политику конфиденциальности">
+                            Политика конфиденциальности
+                        </a>
                     </div>
                 </div>
             </div>
         </footer>
     </div>
 
+    <!-- Success Modal с ARIA -->
+    <div class="modal fade" 
+         id="successModal" 
+         tabindex="-1" 
+         aria-labelledby="successModalLabel" 
+         aria-describedby="successModalDesc"
+         aria-hidden="true"
+         data-bs-backdrop="static"
+         data-bs-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h2 class="modal-title h5 text-success" id="successModalLabel">
+                        <i class="bi bi-check-circle-fill me-2" aria-hidden="true"></i>
+                        Сообщение отправлено!
+                    </h2>
+                    <button type="button" 
+                            class="btn-close" 
+                            data-bs-dismiss="modal" 
+                            aria-label="Закрыть окно"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="successModalDesc">
+                        Ваше сообщение успешно отправлено. Я свяжусь с вами в ближайшее время.
+                    </p>
+                    <div class="alert alert-light border mt-3" role="alert">
+                        <i class="bi bi-clock me-2" aria-hidden="true"></i>
+                        Обычно отвечаю в течение 24 часов
+                    </div>
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" 
+                            class="btn btn-primary" 
+                            data-bs-dismiss="modal"
+                            aria-label="Вернуться к форме">
+                        Продолжить
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
-    <!-- Form Validation Script -->
+    <!-- Enhanced Form Validation Script -->
     <script>
-        // Form validation
-        (function () {
-            'use strict'
-            
-            const form = document.getElementById('contactForm')
-            
-            form.addEventListener('submit', function (event) {
-                if (!form.checkValidity()) {
-                    event.preventDefault()
-                    event.stopPropagation()
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('contactForm');
+            const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+            const messageField = document.getElementById('message');
+            const charCount = document.getElementById('char-count');
+            let previousActiveElement = null;
+
+            // Установить фокус на skip-link при загрузке
+            document.getElementById('skip-link').focus();
+
+            // Счетчик символов для текстовой области
+            messageField.addEventListener('input', function() {
+                const length = this.value.length;
+                charCount.textContent = `${length}/1000`;
+                
+                if (length > 1000) {
+                    this.value = this.value.substring(0, 1000);
+                    charCount.textContent = '1000/1000';
+                    charCount.className = 'badge bg-danger';
+                } else if (length > 900) {
+                    charCount.className = 'badge bg-warning';
+                } else {
+                    charCount.className = 'badge bg-secondary';
+                }
+            });
+
+            // Валидация формы
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                
+                let isValid = true;
+                
+                // Валидация каждого поля
+                const fields = form.querySelectorAll('[required]');
+                fields.forEach(field => {
+                    if (!validateField(field)) {
+                        isValid = false;
+                    }
+                });
+                
+                // Валидация email
+                const emailField = document.getElementById('email');
+                if (emailField.value && !isValidEmail(emailField.value)) {
+                    showError(emailField, 'Пожалуйста, введите корректный email адрес');
+                    isValid = false;
                 }
                 
-                form.classList.add('was-validated')
-                
-                // If form is valid, show success message
-                if (form.checkValidity()) {
-                    event.preventDefault()
-                    alert('Сообщение успешно отправлено! Я свяжусь с вами в ближайшее время.')
-                    form.reset()
-                    form.classList.remove('was-validated')
+                // Валидация сообщения
+                if (messageField.value.length < 10) {
+                    showError(messageField, 'Сообщение должно содержать минимум 10 символов');
+                    isValid = false;
                 }
-            }, false)
-        })()
+                
+                if (isValid) {
+                    // Запоминаем активный элемент
+                    previousActiveElement = document.activeElement;
+                    
+                    // Показываем модальное окно
+                    successModal.show();
+                    
+                    // Скрываем основной контент от скринридера
+                    document.querySelectorAll('main > *').forEach(el => {
+                        el.setAttribute('aria-hidden', 'true');
+                    });
+                    
+                    // Сбрасываем форму
+                    form.reset();
+                    form.classList.remove('was-validated');
+                    charCount.textContent = '0/1000';
+                    charCount.className = 'badge bg-secondary';
+                    
+                    // Очищаем ошибки
+                    document.querySelectorAll('.is-invalid').forEach(el => {
+                        el.classList.remove('is-invalid');
+                    });
+                } else {
+                    form.classList.add('was-validated');
+                }
+            });
+
+            // Валидация при потере фокуса
+            form.querySelectorAll('input, textarea, select').forEach(field => {
+                field.addEventListener('blur', function() {
+                    if (this.hasAttribute('required')) {
+                        validateField(this);
+                    }
+                });
+            });
+
+            // Функция валидации поля
+            function validateField(field) {
+                const errorElement = document.getElementById(`${field.id}-error`);
+                
+                if (field.type === 'checkbox') {
+                    if (!field.checked) {
+                        field.classList.add('is-invalid');
+                        if (errorElement) {
+                            errorElement.style.display = 'block';
+                        }
+                        return false;
+                    }
+                } else if (!field.value.trim()) {
+                    field.classList.add('is-invalid');
+                    if (errorElement) {
+                        errorElement.style.display = 'block';
+                    }
+                    return false;
+                }
+                
+                field.classList.remove('is-invalid');
+                if (errorElement) {
+                    errorElement.style.display = 'none';
+                }
+                return true;
+            }
+
+            // Функция показа ошибки
+            function showError(field, message) {
+                field.classList.add('is-invalid');
+                const errorElement = document.getElementById(`${field.id}-error`);
+                if (errorElement) {
+                    errorElement.textContent = message;
+                    errorElement.style.display = 'block';
+                }
+                field.focus();
+            }
+
+            // Валидация email
+            function isValidEmail(email) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailRegex.test(email);
+            }
+
+            // Обработка событий модального окна
+            const modalElement = document.getElementById('successModal');
+            modalElement.addEventListener('shown.bs.modal', function() {
+                // Фокусируемся на кнопке закрытия в модальном окне
+                const closeBtn = modalElement.querySelector('[data-bs-dismiss="modal"]');
+                closeBtn.focus();
+                
+                // Захват фокуса внутри модального окна
+                modalElement.addEventListener('keydown', trapFocus);
+            });
+
+            modalElement.addEventListener('hidden.bs.modal', function() {
+                // Возвращаем видимость основному контенту
+                document.querySelectorAll('[aria-hidden="true"]').forEach(el => {
+                    el.removeAttribute('aria-hidden');
+                });
+                
+                // Возвращаем фокус на предыдущий элемент
+                if (previousActiveElement) {
+                    previousActiveElement.focus();
+                }
+                
+                // Убираем обработчик захвата фокуса
+                modalElement.removeEventListener('keydown', trapFocus);
+            });
+
+            // Ловушка фокуса внутри модального окна
+            function trapFocus(event) {
+                if (event.key !== 'Tab') return;
+                
+                const focusableElements = modalElement.querySelectorAll(
+                    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+                );
+                
+                if (focusableElements.length === 0) return;
+                
+                const firstElement = focusableElements[0];
+                const lastElement = focusableElements[focusableElements.length - 1];
+                
+                if (event.shiftKey && document.activeElement === firstElement) {
+                    event.preventDefault();
+                    lastElement.focus();
+                } else if (!event.shiftKey && document.activeElement === lastElement) {
+                    event.preventDefault();
+                    firstElement.focus();
+                }
+            }
+
+            // Обработка клавиши Escape для закрытия модального окна
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape' && modalElement.classList.contains('show')) {
+                    successModal.hide();
+                }
+            });
+
+            // Адаптация для touch устройств
+            if (window.matchMedia('(pointer: coarse)').matches) {
+                document.querySelectorAll('.btn, .nav-link, .form-check-input').forEach(el => {
+                    if (!el.style.minHeight) {
+                        el.style.minHeight = '44px';
+                        el.style.minWidth = '44px';
+                    }
+                });
+            }
+
+            // Автофокус на первое поле формы
+            setTimeout(() => {
+                const firstField = form.querySelector('input, select, textarea');
+                if (firstField) {
+                    firstField.focus();
+                }
+            }, 100);
+        });
     </script>
 </body>
 </html>
