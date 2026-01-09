@@ -2,114 +2,92 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="Проекты студента Манжикова Дольгана - веб-разработчика. Коллекция учебных и личных работ.">
-    <title>Проекты - Портфолио Манжикова Дольгана | Веб-разработчик</title>
-    
-    <!-- Preconnect для CDN -->
-    <link rel="preconnect" href="https://cdn.jsdelivr.net">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проекты - Портфолио</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    
-    <!-- Ваш оптимизированный CSS -->
-    <link rel="stylesheet" href="../styles/styles.css">
-    
-    <!-- Preload критичных изображений -->
-    <link rel="preload" href="../images/project1.jpg" as="image" type="image/jpeg">
-    <link rel="preload" href="../images/project2.jpg" as="image" type="image/jpeg">
-    <link rel="preload" href="../images/project3.jpg" as="image" type="image/jpeg">
-    
-    <!-- Цветовая схема -->
-    <meta name="theme-color" content="#667eea">
-    <meta name="color-scheme" content="light dark">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .nav-link.active {
+            font-weight: bold;
+            color: #667eea !important;
+        }
+        .project-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .project-image {
+            height: 200px;
+            object-fit: cover;
+        }
+        .filter-btn.active {
+            background-color: #667eea;
+            color: white;
+        }
+        .badge-filter {
+            cursor: pointer;
+        }
+        .footer {
+            background-color: #343a40;
+            color: white;
+        }
+    </style>
 </head>
-<body class="bg-light" data-bs-theme="light">
-    <!-- Skip link для клавиатурных пользователей -->
-    <a href="#main-content" class="skip-link" id="skip-link">
-        Перейти к основному содержимому
-    </a>
-
-    <!-- Loading indicator -->
-    <div class="visually-hidden" aria-live="polite" aria-atomic="true" id="page-load-status">
-        Страница проектов загружается
-    </div>
-
+<body>
     <div class="container-fluid p-0">
-        <!-- Header с ARIA landmark -->
-        <header class="header py-4" role="banner">
+        <!-- Header -->
+        <header class="header py-4">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col">
-                        <h1 class="h3 mb-1">
-                            Портфолио студента
-                            <span class="visually-hidden">Манжикова Дольгана Саналовича</span>
-                        </h1>
-                        <p class="mb-0 opacity-75">Веб-разработчик</p>
+                        <h1 class="h3 mb-1">Портфолио студента</h1>
+                        <p class="mb-0 opacity-75">Манжиков Дольган Саналович</p>
                     </div>
                     <div class="col-auto">
-                        <span class="badge bg-light text-primary" aria-label="Группа ЭФБО-08-24">
-                            ЭФБО-08-24
-                        </span>
+                        <span class="badge bg-light text-primary">ЭФБО-08-24</span>
                     </div>
                 </div>
             </div>
         </header>
 
-        <!-- Navigation с ARIA -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top" 
-             role="navigation" 
-             aria-label="Основная навигация">
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
             <div class="container">
-                <button class="navbar-toggler" 
-                        type="button" 
-                        data-bs-toggle="collapse" 
-                        data-bs-target="#navbarNav"
-                        aria-controls="navbarNav"
-                        aria-expanded="false"
-                        aria-label="Переключить меню навигации">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav mx-auto" role="menubar">
-                        <li class="nav-item mx-2" role="none">
-                            <a class="nav-link" 
-                               href="../index.html"
-                               role="menuitem"
-                               aria-label="Перейти на главную страницу">
-                                <i class="bi bi-house me-1" aria-hidden="true"></i>
-                                Главная
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="../index.html">
+                                <i class="bi bi-house me-1"></i>Главная
                             </a>
                         </li>
-                        <li class="nav-item mx-2" role="none">
-                            <a class="nav-link active" 
-                               href="projects.html"
-                               role="menuitem"
-                               aria-current="page"
-                               aria-label="Текущая страница: Проекты">
-                                <i class="bi bi-folder me-1" aria-hidden="true"></i>
-                                Проекты
+                        <li class="nav-item mx-2">
+                            <a class="nav-link active" href="projects.html">
+                                <i class="bi bi-folder me-1"></i>Проекты
                             </a>
                         </li>
-                        <li class="nav-item mx-2" role="none">
-                            <a class="nav-link" 
-                               href="diary.html"
-                               role="menuitem"
-                               aria-label="Перейти к дневнику">
-                                <i class="bi bi-journal-text me-1" aria-hidden="true"></i>
-                                Дневник
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="diary.html">
+                                <i class="bi bi-journal-text me-1"></i>Дневник
                             </a>
                         </li>
-                        <li class="nav-item mx-2" role="none">
-                            <a class="nav-link" 
-                               href="contacts.html"
-                               role="menuitem"
-                               aria-label="Перейти к контактам">
-                                <i class="bi bi-telephone me-1" aria-hidden="true"></i>
-                                Контакты
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="contacts.html">
+                                <i class="bi bi-telephone me-1"></i>Контакты
                             </a>
                         </li>
                     </ul>
@@ -118,835 +96,305 @@
         </nav>
 
         <!-- Main Content -->
-        <main id="main-content" class="container my-5" role="main">
+        <main class="container my-5">
             <!-- Page Header -->
-            <section class="row mb-5" aria-labelledby="page-title">
+            <div class="row mb-5">
                 <div class="col-12 text-center">
-                    <h1 id="page-title" class="display-5 fw-bold text-primary mb-3">
-                        Мои проекты
-                    </h1>
-                    <p class="lead text-muted" id="page-description">
-                        Коллекция учебных и личных работ по веб-разработке
-                    </p>
-                    <div class="alert alert-light border mt-3" role="status">
-                        <i class="bi bi-lightbulb me-2" aria-hidden="true"></i>
-                        <span>Используйте фильтры для поиска проектов по технологиям</span>
-                    </div>
+                    <h1 class="display-5 fw-bold text-primary mb-3">Мои проекты</h1>
+                    <p class="lead text-muted">Коллекция учебных и личных работ</p>
                 </div>
-            </section>
+            </div>
 
             <!-- Filters -->
-            <section class="row mb-4" aria-labelledby="filters-heading">
+            <div class="row mb-4">
                 <div class="col-12">
-                    <h2 id="filters-heading" class="visually-hidden">Фильтры проектов</h2>
-                    <div class="d-flex flex-wrap justify-content-center gap-2 mb-4" role="group" aria-label="Фильтры проектов">
-                        <button class="btn btn-outline-primary filter-btn active" 
-                                data-filter="all"
-                                aria-pressed="true"
-                                aria-label="Показать все проекты">
-                            <span class="filter-text">Все</span>
-                            <span class="badge bg-primary ms-1 filter-count" aria-hidden="true">6</span>
-                            <span class="visually-hidden">6 проектов</span>
+                    <div class="d-flex flex-wrap justify-content-center gap-2 mb-4">
+                        <button class="btn btn-outline-primary filter-btn active" data-filter="all">
+                            Все
                         </button>
-                        <button class="btn btn-outline-primary filter-btn" 
-                                data-filter="html"
-                                aria-pressed="false"
-                                aria-label="Показать проекты по HTML/CSS">
-                            <span class="filter-text">HTML/CSS</span>
-                            <span class="badge bg-primary ms-1 filter-count" aria-hidden="true">2</span>
-                            <span class="visually-hidden">2 проекта</span>
+                        <button class="btn btn-outline-primary filter-btn" data-filter="html">
+                            HTML/CSS
                         </button>
-                        <button class="btn btn-outline-primary filter-btn" 
-                                data-filter="js"
-                                aria-pressed="false"
-                                aria-label="Показать проекты по JavaScript">
-                            <span class="filter-text">JavaScript</span>
-                            <span class="badge bg-primary ms-1 filter-count" aria-hidden="true">2</span>
-                            <span class="visually-hidden">2 проекта</span>
+                        <button class="btn btn-outline-primary filter-btn" data-filter="js">
+                            JavaScript
                         </button>
-                        <button class="btn btn-outline-primary filter-btn" 
-                                data-filter="react"
-                                aria-pressed="false"
-                                aria-label="Показать проекты по React">
-                            <span class="filter-text">React</span>
-                            <span class="badge bg-primary ms-1 filter-count" aria-hidden="true">2</span>
-                            <span class="visually-hidden">2 проекта</span>
+                        <button class="btn btn-outline-primary filter-btn" data-filter="react">
+                            React
                         </button>
-                    </div>
-                    
-                    <!-- Поиск и сортировка (опционально) -->
-                    <div class="row g-3 justify-content-center mb-4">
-                        <div class="col-md-6">
-                            <div class="input-group">
-                                <span class="input-group-text" id="search-label">
-                                    <i class="bi bi-search" aria-hidden="true"></i>
-                                    <span class="visually-hidden">Поиск проектов</span>
-                                </span>
-                                <input type="search" 
-                                       class="form-control" 
-                                       id="projectSearch" 
-                                       placeholder="Найти проект по названию или описанию..."
-                                       aria-label="Поиск проектов"
-                                       aria-describedby="search-label">
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <select class="form-select" id="sortProjects" aria-label="Сортировка проектов">
-                                <option value="date-desc">Сначала новые</option>
-                                <option value="date-asc">Сначала старые</option>
-                                <option value="name-asc">По названию (А-Я)</option>
-                                <option value="name-desc">По названию (Я-А)</option>
-                            </select>
-                        </div>
                     </div>
                 </div>
-            </section>
+            </div>
 
-            <!-- Projects Grid с Container Queries -->
-            <section class="projects-area" aria-labelledby="projects-heading">
-                <div class="container">
-                    <h2 id="projects-heading" class="visually-hidden">Список проектов</h2>
-                    
-                    <!-- Сообщение при отсутствии результатов -->
-                    <div class="alert alert-warning visually-hidden" 
-                         id="no-results-message" 
-                         role="alert"
-                         aria-live="polite">
-                        <i class="bi bi-exclamation-triangle me-2" aria-hidden="true"></i>
-                        Проекты по выбранным фильтрам не найдены. Попробуйте изменить критерии поиска.
-                    </div>
-
-                    <!-- Сетка проектов с адаптивной Grid -->
-                    <div class="projects-grid" id="projectsGrid" role="list" aria-label="Список проектов">
-                        
-                        <!-- Project 1 -->
-                        <article class="project-item" 
-                                 data-category="html" 
-                                 data-date="2024-12"
-                                 data-name="Личный сайт"
-                                 role="listitem">
-                            <div class="card project-card h-100 border-0 shadow-sm"
-                                 data-bs-toggle="modal" 
-                                 data-bs-target="#projectModal1"
-                                 tabindex="0"
-                                 role="button"
-                                 aria-label="Открыть детали проекта: Личный сайт">
-                                <!-- Responsive Image с srcset -->
-                                <picture>
-                                    <source srcset="../images/project1.webp" type="image/webp">
-                                    <img src="../images/project1.jpg" 
-                                         class="card-img-top project-image img-cover" 
-                                         alt="Скриншот личного сайта-портфолио с адаптивным дизайном"
-                                         width="400"
-                                         height="200"
-                                         loading="lazy"
-                                         decoding="async">
-                                </picture>
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between align-items-start mb-2">
-                                        <h3 class="card-title h5 mb-0 text-primary">Личный сайт</h3>
-                                        <span class="badge bg-primary" aria-hidden="true">HTML/CSS</span>
-                                        <span class="visually-hidden">Категория: HTML/CSS</span>
-                                    </div>
-                                    <p class="card-text text-muted">
-                                        Сайт-портфолио на HTML и CSS с адаптивным дизайном и семантической разметкой.
-                                    </p>
-                                    <div class="d-flex gap-1 flex-wrap" role="list" aria-label="Использованные технологии">
-                                        <span class="badge bg-light text-dark border" role="listitem">HTML5</span>
-                                        <span class="badge bg-light text-dark border" role="listitem">CSS3</span>
-                                        <span class="badge bg-light text-dark border" role="listitem">Bootstrap 5</span>
-                                        <span class="badge bg-light text-dark border" role="listitem">JavaScript</span>
-                                    </div>
-                                </div>
-                                <div class="card-footer bg-transparent border-top-0">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <small class="text-muted">
-                                            <i class="bi bi-calendar me-1" aria-hidden="true"></i>
-                                            Декабрь 2024
-                                        </small>
-                                        <span class="badge bg-secondary">
-                                            <i class="bi bi-star me-1" aria-hidden="true"></i>
-                                            Учебный
-                                        </span>
-                                    </div>
-                                </div>
+            <!-- Projects Grid -->
+            <div class="row g-4" id="projectsGrid">
+                <!-- Project 1 -->
+                <div class="col-lg-4 col-md-6 project-item" data-category="html">
+                    <div class="card project-card h-100 border-0 shadow-sm" data-bs-toggle="modal" data-bs-target="#projectModal1">
+                        <img src="../images/project1.jpg" class="card-img-top project-image" alt="Личный сайт">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h3 class="card-title h5 mb-0">Личный сайт</h3>
+                                <span class="badge bg-primary">HTML/CSS</span>
                             </div>
-                        </article>
-
-                        <!-- Project 2 -->
-                        <article class="project-item" 
-                                 data-category="js" 
-                                 data-date="2025-01"
-                                 data-name="Todo приложение"
-                                 role="listitem">
-                            <div class="card project-card h-100 border-0 shadow-sm"
-                                 data-bs-toggle="modal" 
-                                 data-bs-target="#projectModal2"
-                                 tabindex="0"
-                                 role="button"
-                                 aria-label="Открыть детали проекта: Todo приложение">
-                                <picture>
-                                    <source srcset="../images/project2.webp" type="image/webp">
-                                    <img src="../images/project2.jpg" 
-                                         class="card-img-top project-image img-cover" 
-                                         alt="Интерфейс приложения для управления задачами с списком дел"
-                                         width="400"
-                                         height="200"
-                                         loading="lazy"
-                                         decoding="async">
-                                </picture>
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between align-items-start mb-2">
-                                        <h3 class="card-title h5 mb-0 text-success">Todo приложение</h3>
-                                        <span class="badge bg-success" aria-hidden="true">JavaScript</span>
-                                        <span class="visually-hidden">Категория: JavaScript</span>
-                                    </div>
-                                    <p class="card-text text-muted">
-                                        Приложение для управления задачами с использованием LocalStorage и CRUD операций.
-                                    </p>
-                                    <div class="d-flex gap-1 flex-wrap" role="list" aria-label="Использованные технологии">
-                                        <span class="badge bg-light text-dark border" role="listitem">JavaScript</span>
-                                        <span class="badge bg-light text-dark border" role="listitem">LocalStorage</span>
-                                        <span class="badge bg-light text-dark border" role="listitem">DOM API</span>
-                                    </div>
-                                </div>
-                                <div class="card-footer bg-transparent border-top-0">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <small class="text-muted">
-                                            <i class="bi bi-calendar me-1" aria-hidden="true"></i>
-                                            Январь 2025
-                                        </small>
-                                        <span class="badge bg-warning text-dark">
-                                            <i class="bi bi-lightning me-1" aria-hidden="true"></i>
-                                            Активный
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Project 3 -->
-                        <article class="project-item" 
-                                 data-category="react" 
-                                 data-date="2025-02"
-                                 data-name="Интернет-магазин"
-                                 role="listitem">
-                            <div class="card project-card h-100 border-0 shadow-sm"
-                                 data-bs-toggle="modal" 
-                                 data-bs-target="#projectModal3"
-                                 tabindex="0"
-                                 role="button"
-                                 aria-label="Открыть детали проекта: Интернет-магазин">
-                                <picture>
-                                    <source srcset="../images/project3.webp" type="image/webp">
-                                    <img src="../images/project3.jpg" 
-                                         class="card-img-top project-image img-cover" 
-                                         alt="Прототип интернет-магазина с карточками товаров и корзиной"
-                                         width="400"
-                                         height="200"
-                                         loading="lazy"
-                                         decoding="async">
-                                </picture>
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between align-items-start mb-2">
-                                        <h3 class="card-title h5 mb-0 text-info">Интернет-магазин</h3>
-                                        <span class="badge bg-info" aria-hidden="true">React</span>
-                                        <span class="visually-hidden">Категория: React</span>
-                                    </div>
-                                    <p class="card-text text-muted">
-                                        Прототип интернет-магазина с корзиной товаров, фильтрацией и имитацией API.
-                                    </p>
-                                    <div class="d-flex gap-1 flex-wrap" role="list" aria-label="Использованные технологии">
-                                        <span class="badge bg-light text-dark border" role="listitem">React</span>
-                                        <span class="badge bg-light text-dark border" role="listitem">Context API</span>
-                                        <span class="badge bg-light text-dark border" role="listitem">Mock API</span>
-                                    </div>
-                                </div>
-                                <div class="card-footer bg-transparent border-top-0">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <small class="text-muted">
-                                            <i class="bi bi-calendar me-1" aria-hidden="true"></i>
-                                            Февраль 2025
-                                        </small>
-                                        <span class="badge bg-success">
-                                            <i class="bi bi-check-circle me-1" aria-hidden="true"></i>
-                                            Завершен
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Project 4 -->
-                        <article class="project-item" 
-                                 data-category="html" 
-                                 data-date="2024-11"
-                                 data-name="Лендинг страница"
-                                 role="listitem">
-                            <div class="card project-card h-100 border-0 shadow-sm"
-                                 data-bs-toggle="modal" 
-                                 data-bs-target="#projectModal4"
-                                 tabindex="0"
-                                 role="button"
-                                 aria-label="Открыть детали проекта: Лендинг страница">
-                                <picture>
-                                    <source srcset="https://via.placeholder.com/400x200.webp/6c757d/ffffff?text=Лендинг" type="image/webp">
-                                    <img src="https://via.placeholder.com/400x200/6c757d/ffffff?text=Лендинг" 
-                                         class="card-img-top project-image img-cover" 
-                                         alt="Одностраничный лендинг для бизнеса с современным дизайном"
-                                         width="400"
-                                         height="200"
-                                         loading="lazy"
-                                         decoding="async">
-                                </picture>
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between align-items-start mb-2">
-                                        <h3 class="card-title h5 mb-0 text-primary">Лендинг страница</h3>
-                                        <span class="badge bg-primary" aria-hidden="true">HTML/CSS</span>
-                                        <span class="visually-hidden">Категория: HTML/CSS</span>
-                                    </div>
-                                    <p class="card-text text-muted">
-                                        Одностраничный сайт для бизнеса с анимациями, формами и адаптивным дизайном.
-                                    </p>
-                                    <div class="d-flex gap-1 flex-wrap" role="list" aria-label="Использованные технологии">
-                                        <span class="badge bg-light text-dark border" role="listitem">HTML</span>
-                                        <span class="badge bg-light text-dark border" role="listitem">CSS</span>
-                                        <span class="badge bg-light text-dark border" role="listitem">JavaScript</span>
-                                        <span class="badge bg-light text-dark border" role="listitem">GSAP</span>
-                                    </div>
-                                </div>
-                                <div class="card-footer bg-transparent border-top-0">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <small class="text-muted">
-                                            <i class="bi bi-calendar me-1" aria-hidden="true"></i>
-                                            Ноябрь 2024
-                                        </small>
-                                        <span class="badge bg-secondary">
-                                            <i class="bi bi-star me-1" aria-hidden="true"></i>
-                                            Учебный
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Project 5 -->
-                        <article class="project-item" 
-                                 data-category="js" 
-                                 data-date="2025-03"
-                                 data-name="Погодное приложение"
-                                 role="listitem">
-                            <div class="card project-card h-100 border-0 shadow-sm"
-                                 data-bs-toggle="modal" 
-                                 data-bs-target="#projectModal5"
-                                 tabindex="0"
-                                 role="button"
-                                 aria-label="Открыть детали проекта: Погодное приложение">
-                                <picture>
-                                    <source srcset="https://via.placeholder.com/400x200.webp/198754/ffffff?text=Погода" type="image/webp">
-                                    <img src="https://via.placeholder.com/400x200/198754/ffffff?text=Погода" 
-                                         class="card-img-top project-image img-cover" 
-                                         alt="Приложение для просмотра погоды с картой и прогнозом"
-                                         width="400"
-                                         height="200"
-                                         loading="lazy"
-                                         decoding="async">
-                                </picture>
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between align-items-start mb-2">
-                                        <h3 class="card-title h5 mb-0 text-success">Погодное приложение</h3>
-                                        <span class="badge bg-success" aria-hidden="true">JavaScript</span>
-                                        <span class="visually-hidden">Категория: JavaScript</span>
-                                    </div>
-                                    <p class="card-text text-muted">
-                                        Приложение для просмотра погоды с использованием API, геолокации и графиками.
-                                    </p>
-                                    <div class="d-flex gap-1 flex-wrap" role="list" aria-label="Использованные технологии">
-                                        <span class="badge bg-light text-dark border" role="listitem">JavaScript</span>
-                                        <span class="badge bg-light text-dark border" role="listitem">API</span>
-                                        <span class="badge bg-light text-dark border" role="listitem">Chart.js</span>
-                                    </div>
-                                </div>
-                                <div class="card-footer bg-transparent border-top-0">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <small class="text-muted">
-                                            <i class="bi bi-calendar me-1" aria-hidden="true"></i>
-                                            Март 2025
-                                        </small>
-                                        <span class="badge bg-warning text-dark">
-                                            <i class="bi bi-lightning me-1" aria-hidden="true"></i>
-                                            Активный
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Project 6 -->
-                        <article class="project-item" 
-                                 data-category="react" 
-                                 data-date="2025-04"
-                                 data-name="Блог платформа"
-                                 role="listitem">
-                            <div class="card project-card h-100 border-0 shadow-sm"
-                                 data-bs-toggle="modal" 
-                                 data-bs-target="#projectModal6"
-                                 tabindex="0"
-                                 role="button"
-                                 aria-label="Открыть детали проекта: Блог платформа">
-                                <picture>
-                                    <source srcset="https://via.placeholder.com/400x200.webp/0d6efd/ffffff?text=Блог" type="image/webp">
-                                    <img src="https://via.placeholder.com/400x200/0d6efd/ffffff?text=Блог" 
-                                         class="card-img-top project-image img-cover" 
-                                         alt="Платформа для ведения блога с системой комментариев"
-                                         width="400"
-                                         height="200"
-                                         loading="lazy"
-                                         decoding="async">
-                                </picture>
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between align-items-start mb-2">
-                                        <h3 class="card-title h5 mb-0 text-info">Блог платформа</h3>
-                                        <span class="badge bg-info" aria-hidden="true">React</span>
-                                        <span class="visually-hidden">Категория: React</span>
-                                    </div>
-                                    <p class="card-text text-muted">
-                                        Платформа для ведения блога с авторизацией, комментариями и административной панелью.
-                                    </p>
-                                    <div class="d-flex gap-1 flex-wrap" role="list" aria-label="Использованные технологии">
-                                        <span class="badge bg-light text-dark border" role="listitem">React</span>
-                                        <span class="badge bg-light text-dark border" role="listitem">Firebase</span>
-                                        <span class="badge bg-light text-dark border" role="listitem">Redux</span>
-                                    </div>
-                                </div>
-                                <div class="card-footer bg-transparent border-top-0">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <small class="text-muted">
-                                            <i class="bi bi-calendar me-1" aria-hidden="true"></i>
-                                            Апрель 2025
-                                        </small>
-                                        <span class="badge bg-success">
-                                            <i class="bi bi-check-circle me-1" aria-hidden="true"></i>
-                                            Завершен
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-
-                    <!-- Project Count и статистика -->
-                    <div class="row mt-5">
-                        <div class="col-12">
-                            <div class="alert alert-light border" role="status" aria-live="polite">
-                                <div class="d-flex flex-wrap justify-content-between align-items-center">
-                                    <div>
-                                        <i class="bi bi-info-circle me-2" aria-hidden="true"></i>
-                                        Показано <span id="projectCount" class="fw-bold">6</span> 
-                                        из <span id="totalProjects" class="fw-bold">6</span> проектов
-                                    </div>
-                                    <div class="mt-2 mt-md-0">
-                                        <span class="badge bg-primary me-2">
-                                            HTML/CSS: <span id="htmlCount">2</span>
-                                        </span>
-                                        <span class="badge bg-success me-2">
-                                            JavaScript: <span id="jsCount">2</span>
-                                        </span>
-                                        <span class="badge bg-info">
-                                            React: <span id="reactCount">2</span>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- CTA секция -->
-            <section class="row mt-5" aria-labelledby="cta-heading">
-                <div class="col-12 text-center">
-                    <div class="card border-primary bg-light">
-                        <div class="card-body p-5">
-                            <h3 id="cta-heading" class="card-title mb-3">Хотите увидеть больше?</h3>
-                            <p class="card-text mb-4">
-                                Посетите мой GitHub профиль для просмотра исходного кода всех проектов
+                            <p class="card-text text-muted">
+                                Сайт-портфолио на HTML и CSS с адаптивным дизайном.
                             </p>
-                            <a href="https://github.com/ALW5" 
-                               target="_blank"
-                               rel="noopener noreferrer"
-                               class="btn btn-primary btn-lg px-4"
-                               aria-label="Перейти на GitHub профиль ALW5 (откроется в новой вкладке)">
-                                <i class="bi bi-github me-2" aria-hidden="true"></i>
-                                GitHub профиль
-                                <span class="visually-hidden">(откроется в новой вкладке)</span>
-                            </a>
+                            <div class="d-flex gap-1 flex-wrap">
+                                <span class="badge bg-light text-dark border">HTML</span>
+                                <span class="badge bg-light text-dark border">CSS</span>
+                                <span class="badge bg-light text-dark border">Bootstrap</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent border-top-0">
+                            <small class="text-muted">
+                                <i class="bi bi-calendar me-1"></i>Декабрь 2024
+                            </small>
                         </div>
                     </div>
                 </div>
-            </section>
+
+                <!-- Project 2 -->
+                <div class="col-lg-4 col-md-6 project-item" data-category="js">
+                    <div class="card project-card h-100 border-0 shadow-sm" data-bs-toggle="modal" data-bs-target="#projectModal2">
+                        <img src="../images/project2.jpg" class="card-img-top project-image" alt="Todo приложение">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h3 class="card-title h5 mb-0">Todo приложение</h3>
+                                <span class="badge bg-success">JavaScript</span>
+                            </div>
+                            <p class="card-text text-muted">
+                                Приложение для управления задачами с использованием LocalStorage.
+                            </p>
+                            <div class="d-flex gap-1 flex-wrap">
+                                <span class="badge bg-light text-dark border">JavaScript</span>
+                                <span class="badge bg-light text-dark border">LocalStorage</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent border-top-0">
+                            <small class="text-muted">
+                                <i class="bi bi-calendar me-1"></i>Январь 2025
+                            </small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="col-lg-4 col-md-6 project-item" data-category="react">
+                    <div class="card project-card h-100 border-0 shadow-sm" data-bs-toggle="modal" data-bs-target="#projectModal3">
+                        <img src="../images/project3.jpg" class="card-img-top project-image" alt="Интернет-магазин">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h3 class="card-title h5 mb-0">Интернет-магазин</h3>
+                                <span class="badge bg-info">React</span>
+                            </div>
+                            <p class="card-text text-muted">
+                                Прототип интернет-магазина с корзиной товаров и фильтрацией.
+                            </p>
+                            <div class="d-flex gap-1 flex-wrap">
+                                <span class="badge bg-light text-dark border">React</span>
+                                <span class="badge bg-light text-dark border">API</span>
+                                <span class="badge bg-light text-dark border">Bootstrap</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent border-top-0">
+                            <small class="text-muted">
+                                <i class="bi bi-calendar me-1"></i>Февраль 2025
+                            </small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="col-lg-4 col-md-6 project-item" data-category="html">
+                    <div class="card project-card h-100 border-0 shadow-sm" data-bs-toggle="modal" data-bs-target="#projectModal4">
+                        <img src="https://via.placeholder.com/400x200/6c757d/ffffff?text=Лендинг" 
+                             class="card-img-top project-image" alt="Лендинг">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h3 class="card-title h5 mb-0">Лендинг страница</h3>
+                                <span class="badge bg-primary">HTML/CSS</span>
+                            </div>
+                            <p class="card-text text-muted">
+                                Одностраничный сайт для бизнеса с анимациями.
+                            </p>
+                            <div class="d-flex gap-1 flex-wrap">
+                                <span class="badge bg-light text-dark border">HTML</span>
+                                <span class="badge bg-light text-dark border">CSS</span>
+                                <span class="badge bg-light text-dark border">JavaScript</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent border-top-0">
+                            <small class="text-muted">
+                                <i class="bi bi-calendar me-1"></i>Ноябрь 2024
+                            </small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="col-lg-4 col-md-6 project-item" data-category="js">
+                    <div class="card project-card h-100 border-0 shadow-sm" data-bs-toggle="modal" data-bs-target="#projectModal5">
+                        <img src="https://via.placeholder.com/400x200/198754/ffffff?text=Погода" 
+                             class="card-img-top project-image" alt="Погодное приложение">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h3 class="card-title h5 mb-0">Погодное приложение</h3>
+                                <span class="badge bg-success">JavaScript</span>
+                            </div>
+                            <p class="card-text text-muted">
+                                Приложение для просмотра погоды с использованием API.
+                            </p>
+                            <div class="d-flex gap-1 flex-wrap">
+                                <span class="badge bg-light text-dark border">JavaScript</span>
+                                <span class="badge bg-light text-dark border">API</span>
+                                <span class="badge bg-light text-dark border">Axios</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent border-top-0">
+                            <small class="text-muted">
+                                <i class="bi bi-calendar me-1"></i>Март 2025
+                            </small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="col-lg-4 col-md-6 project-item" data-category="react">
+                    <div class="card project-card h-100 border-0 shadow-sm" data-bs-toggle="modal" data-bs-target="#projectModal6">
+                        <img src="https://via.placeholder.com/400x200/0d6efd/ffffff?text=Блог" 
+                             class="card-img-top project-image" alt="Блог">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h3 class="card-title h5 mb-0">Блог платформа</h3>
+                                <span class="badge bg-info">React</span>
+                            </div>
+                            <p class="card-text text-muted">
+                                Платформа для ведения блога с авторизацией пользователей.
+                            </p>
+                            <div class="d-flex gap-1 flex-wrap">
+                                <span class="badge bg-light text-dark border">React</span>
+                                <span class="badge bg-light text-dark border">Firebase</span>
+                                <span class="badge bg-light text-dark border">Context API</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent border-top-0">
+                            <small class="text-muted">
+                                <i class="bi bi-calendar me-1"></i>Апрель 2025
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Count -->
+            <div class="row mt-5">
+                <div class="col-12 text-center">
+                    <div class="alert alert-light border" role="alert">
+                        <i class="bi bi-info-circle me-2"></i>
+                        Показано <span id="projectCount">6</span> проектов из 6
+                    </div>
+                </div>
+            </div>
         </main>
 
         <!-- Footer -->
-        <footer class="footer py-4 mt-5" role="contentinfo">
+        <footer class="footer py-4 mt-5">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-6">
-                        <p class="mb-0">
-                            &copy; 2025 Портфолио Манжикова Дольгана. Все права защищены.
-                        </p>
-                        <p class="mb-0 small opacity-75">
-                            <i class="bi bi-universal-access me-1" aria-hidden="true"></i>
-                            Сайт оптимизирован для доступности
-                        </p>
+                        <p class="mb-0">&copy; 2025 Портфолио студента. Все права защищены.</p>
                     </div>
                     <div class="col-md-6 text-md-end">
-                        <a href="contacts.html" 
-                           class="text-white text-decoration-none me-3 btn-footer"
-                           aria-label="Перейти на страницу контактов">
-                            Контакты
-                        </a>
-                        <a href="https://github.com/ALW5" 
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           class="text-white text-decoration-none btn-footer"
-                           aria-label="Перейти на GitHub профиль (откроется в новой вкладке)">
-                            <i class="bi bi-github me-1" aria-hidden="true"></i>
-                            GitHub
-                            <span class="visually-hidden">(откроется в новой вкладке)</span>
-                        </a>
+                        <a href="contacts.html" class="text-white text-decoration-none me-3">Контакты</a>
+                        <a href="#" class="text-white text-decoration-none">GitHub</a>
                     </div>
                 </div>
             </div>
         </footer>
     </div>
 
-    <!-- Модальные окна с улучшенной доступностью -->
-    
+    <!-- Modals for Projects -->
     <!-- Modal 1 -->
-    <div class="modal fade" 
-         id="projectModal1" 
-         tabindex="-1" 
-         aria-labelledby="projectModal1Label" 
-         aria-describedby="projectModal1Desc"
-         aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal fade" id="projectModal1" tabindex="-1">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h2 id="projectModal1Label" class="modal-title h5">
-                        Личный сайт
-                        <span class="badge bg-primary ms-2">HTML/CSS</span>
-                    </h2>
-                    <button type="button" 
-                            class="btn-close" 
-                            data-bs-dismiss="modal" 
-                            aria-label="Закрыть модальное окно"></button>
+                    <h5 class="modal-title">Личный сайт</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <div id="projectModal1Desc" class="visually-hidden">
-                        Детальная информация о проекте Личный сайт: адаптивный сайт-портфолио с использованием HTML, CSS, Bootstrap и JavaScript.
-                    </div>
-                    
-                    <picture>
-                        <source srcset="../images/project1-large.webp" media="(min-width: 768px)" type="image/webp">
-                        <source srcset="../images/project1-medium.webp" media="(min-width: 576px)" type="image/webp">
-                        <img src="../images/project1.jpg" 
-                             class="img-fluid rounded mb-3" 
-                             alt="Полный скриншот личного сайта-портфолио"
-                             loading="lazy">
-                    </picture>
-                    
-                    <h3 class="h6 mt-4">Описание проекта</h3>
-                    <p>
-                        Полнофункциональный сайт-портфолио с адаптивным дизайном, семантической разметкой 
-                        и оптимизацией для производительности. Включает разделы: о себе, навыки, проекты, контакты.
-                    </p>
-                    
-                    <h3 class="h6 mt-4">Основные особенности</h3>
-                    <ul class="mb-3">
-                        <li>Адаптивный дизайн (Mobile First)</li>
-                        <li>Семантическая HTML5 разметка</li>
-                        <li>Оптимизация производительности (Lighthouse 95+)</li>
-                        <li>Доступность (WCAG 2.1 AA)</li>
-                        <li>Кросс-браузерная совместимость</li>
-                    </ul>
-                    
-                    <h3 class="h6 mt-4">Технологии</h3>
+                    <img src="../images/project1.jpg" class="img-fluid rounded mb-3" alt="Личный сайт">
+                    <h6>Описание проекта</h6>
+                    <p>Полнофункциональный сайт-портфолио с адаптивным дизайном. Включает разделы: о себе, навыки, проекты, контакты.</p>
+                    <h6>Технологии</h6>
                     <div class="mb-3">
-                        <span class="badge bg-primary me-1 mb-1">HTML5</span>
-                        <span class="badge bg-primary me-1 mb-1">CSS3</span>
-                        <span class="badge bg-primary me-1 mb-1">Bootstrap 5</span>
-                        <span class="badge bg-primary me-1 mb-1">JavaScript</span>
-                        <span class="badge bg-primary me-1 mb-1">Git</span>
+                        <span class="badge bg-primary me-1">HTML5</span>
+                        <span class="badge bg-primary me-1">CSS3</span>
+                        <span class="badge bg-primary me-1">Bootstrap 5</span>
+                        <span class="badge bg-primary me-1">JavaScript</span>
                     </div>
-                    
-                    <h3 class="h6 mt-4">Ссылки</h3>
-                    <div class="d-flex flex-wrap gap-2">
-                        <a href="#" 
-                           class="btn btn-sm btn-outline-primary"
-                           aria-label="Посмотреть демо проекта Личный сайт">
-                            <i class="bi bi-eye me-1" aria-hidden="true"></i>
-                            Демо
+                    <h6>Ссылки</h6>
+                    <div>
+                        <a href="#" class="btn btn-sm btn-outline-primary me-2">
+                            <i class="bi bi-eye me-1"></i>Демо
                         </a>
-                        <a href="https://github.com/ALW5/portfolio" 
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           class="btn btn-sm btn-outline-dark"
-                           aria-label="Посмотреть исходный код на GitHub (откроется в новой вкладке)">
-                            <i class="bi bi-github me-1" aria-hidden="true"></i>
-                            Код
-                            <span class="visually-hidden">(откроется в новой вкладке)</span>
+                        <a href="#" class="btn btn-sm btn-outline-dark">
+                            <i class="bi bi-github me-1"></i>Код
                         </a>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" 
-                            class="btn btn-secondary" 
-                            data-bs-dismiss="modal"
-                            aria-label="Закрыть окно и вернуться к списку проектов">
-                        Закрыть
-                    </button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Остальные модальные окна по аналогии -->
+    <!-- Modal 2 (остальные модальные окна по аналогии) -->
+    <div class="modal fade" id="projectModal2" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Todo приложение</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Приложение для управления задачами с сохранением в LocalStorage.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Bootstrap JS Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
-    <!-- Enhanced Filter Script с доступностью -->
+    <!-- Filter Script -->
     <script>
+        // Filter functionality
         document.addEventListener('DOMContentLoaded', function() {
-            // Объявить о загрузке страницы
-            const pageLoadStatus = document.getElementById('page-load-status');
-            if (pageLoadStatus) {
-                pageLoadStatus.textContent = 'Страница проектов загружена';
-                setTimeout(() => {
-                    pageLoadStatus.textContent = '';
-                }, 3000);
-            }
-            
-            // Установить фокус на skip-link
-            const skipLink = document.getElementById('skip-link');
-            if (skipLink) {
-                skipLink.focus();
-            }
-            
-            // Элементы DOM
             const filterButtons = document.querySelectorAll('.filter-btn');
             const projectItems = document.querySelectorAll('.project-item');
-            const projectSearch = document.getElementById('projectSearch');
-            const sortSelect = document.getElementById('sortProjects');
-            const noResultsMessage = document.getElementById('no-results-message');
-            const projectCount = document.getElementById('projectCount');
-            const totalProjects = document.getElementById('totalProjects');
             
-            let activeFilter = 'all';
-            let searchTerm = '';
-            let sortBy = 'date-desc';
-            
-            // Инициализация счетчиков
-            function updateCounters() {
-                const visibleProjects = document.querySelectorAll('.project-item:not([style*="display: none"])');
-                projectCount.textContent = visibleProjects.length;
-                totalProjects.textContent = projectItems.length;
-                
-                // Обновить счетчики по категориям
-                const htmlCount = document.querySelectorAll('.project-item[data-category="html"]:not([style*="display: none"])').length;
-                const jsCount = document.querySelectorAll('.project-item[data-category="js"]:not([style*="display: none"])').length;
-                const reactCount = document.querySelectorAll('.project-item[data-category="react"]:not([style*="display: none"])').length;
-                
-                document.getElementById('htmlCount').textContent = htmlCount;
-                document.getElementById('jsCount').textContent = jsCount;
-                document.getElementById('reactCount').textContent = reactCount;
-                
-                // Показать/скрыть сообщение об отсутствии результатов
-                if (visibleProjects.length === 0) {
-                    noResultsMessage.classList.remove('visually-hidden');
-                    noResultsMessage.setAttribute('aria-hidden', 'false');
-                } else {
-                    noResultsMessage.classList.add('visually-hidden');
-                    noResultsMessage.setAttribute('aria-hidden', 'true');
-                }
-            }
-            
-            // Функция фильтрации
-            function filterProjects() {
-                projectItems.forEach(item => {
-                    const category = item.getAttribute('data-category');
-                    const name = item.getAttribute('data-name').toLowerCase();
-                    const description = item.querySelector('.card-text').textContent.toLowerCase();
-                    
-                    const matchesFilter = activeFilter === 'all' || category === activeFilter;
-                    const matchesSearch = searchTerm === '' || 
-                                        name.includes(searchTerm) || 
-                                        description.includes(searchTerm);
-                    
-                    if (matchesFilter && matchesSearch) {
-                        item.style.display = 'block';
-                        item.removeAttribute('aria-hidden');
-                    } else {
-                        item.style.display = 'none';
-                        item.setAttribute('aria-hidden', 'true');
-                    }
-                });
-                
-                // Сортировка
-                sortProjects();
-                updateCounters();
-            }
-            
-            // Функция сортировки
-            function sortProjects() {
-                const container = document.getElementById('projectsGrid');
-                const items = Array.from(container.querySelectorAll('.project-item:not([style*="display: none"])'));
-                
-                items.sort((a, b) => {
-                    switch(sortBy) {
-                        case 'date-desc':
-                            return new Date(b.getAttribute('data-date')) - new Date(a.getAttribute('data-date'));
-                        case 'date-asc':
-                            return new Date(a.getAttribute('data-date')) - new Date(b.getAttribute('data-date'));
-                        case 'name-asc':
-                            return a.getAttribute('data-name').localeCompare(b.getAttribute('data-name'));
-                        case 'name-desc':
-                            return b.getAttribute('data-name').localeCompare(a.getAttribute('data-name'));
-                        default:
-                            return 0;
-                    }
-                });
-                
-                // Переставить элементы
-                items.forEach(item => container.appendChild(item));
-            }
-            
-            // Обработчики фильтров
             filterButtons.forEach(button => {
                 button.addEventListener('click', function() {
-                    // Обновить aria-pressed
-                    filterButtons.forEach(btn => {
-                        btn.setAttribute('aria-pressed', 'false');
-                        btn.classList.remove('active');
-                    });
-                    this.setAttribute('aria-pressed', 'true');
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
                     this.classList.add('active');
                     
-                    // Обновить фильтр
-                    activeFilter = this.getAttribute('data-filter');
+                    const filterValue = this.getAttribute('data-filter');
                     
-                    // Объявить изменение для скринридеров
-                    const filterText = this.querySelector('.filter-text').textContent;
-                    const status = document.createElement('div');
-                    status.className = 'visually-hidden';
-                    status.setAttribute('aria-live', 'polite');
-                    status.setAttribute('aria-atomic', 'true');
-                    status.textContent = `Фильтр изменен на: ${filterText}`;
-                    document.body.appendChild(status);
-                    setTimeout(() => status.remove(), 1000);
-                    
-                    filterProjects();
-                });
-                
-                // Клавиатурная навигация для фильтров
-                button.addEventListener('keydown', function(event) {
-                    if (event.key === 'Enter' || event.key === ' ') {
-                        event.preventDefault();
-                        this.click();
-                    }
-                });
-            });
-            
-            // Поиск
-            if (projectSearch) {
-                projectSearch.addEventListener('input', function() {
-                    searchTerm = this.value.toLowerCase().trim();
-                    filterProjects();
-                    
-                    // Объявить количество результатов
-                    const visibleCount = document.querySelectorAll('.project-item:not([style*="display: none"])').length;
-                    const status = document.createElement('div');
-                    status.className = 'visually-hidden';
-                    status.setAttribute('aria-live', 'polite');
-                    status.setAttribute('aria-atomic', 'true');
-                    status.textContent = `Найдено проектов: ${visibleCount}`;
-                    document.body.appendChild(status);
-                    setTimeout(() => status.remove(), 1000);
-                });
-            }
-            
-            // Сортировка
-            if (sortSelect) {
-                sortSelect.addEventListener('change', function() {
-                    sortBy = this.value;
-                    filterProjects();
-                });
-            }
-            
-            // Доступность для карточек проектов
-            const projectCards = document.querySelectorAll('.project-card[role="button"]');
-            projectCards.forEach(card => {
-                card.addEventListener('keydown', function(event) {
-                    if (event.key === 'Enter' || event.key === ' ') {
-                        event.preventDefault();
-                        this.click();
-                    }
-                });
-            });
-            
-            // Инициализация
-            updateCounters();
-            
-            // Адаптация для touch устройств
-            if (window.matchMedia('(pointer: coarse)').matches) {
-                document.querySelectorAll('.filter-btn, .project-card').forEach(el => {
-                    if (!el.style.minHeight) {
-                        el.style.minHeight = '44px';
-                    }
-                    if (!el.style.minWidth && el.classList.contains('filter-btn')) {
-                        el.style.minWidth = '44px';
-                    }
-                });
-            }
-            
-            // Поддержка prefers-reduced-motion
-            const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-            if (reducedMotionQuery.matches) {
-                document.body.classList.add('reduced-motion');
-            }
-            
-            // Поддержка prefers-color-scheme
-            const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
-            function updateTheme() {
-                if (darkModeQuery.matches) {
-                    document.documentElement.setAttribute('data-bs-theme', 'dark');
-                } else {
-                    document.documentElement.setAttribute('data-bs-theme', 'light');
-                }
-            }
-            updateTheme();
-            darkModeQuery.addEventListener('change', updateTheme);
-            
-            // Lazy loading для изображений
-            if ('IntersectionObserver' in window) {
-                const imageObserver = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            const img = entry.target;
-                            if (img.dataset.src) {
-                                img.src = img.dataset.src;
-                            }
-                            img.classList.add('loaded');
-                            imageObserver.unobserve(img);
+                    // Filter projects
+                    projectItems.forEach(item => {
+                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
                         }
                     });
+                    
+                    // Update project count
+                    const visibleProjects = document.querySelectorAll('.project-item[style="display: block"]');
+                    document.getElementById('projectCount').textContent = visibleProjects.length;
                 });
-                
-                document.querySelectorAll('img[loading="lazy"]').forEach(img => {
-                    imageObserver.observe(img);
-                });
-            }
+            });
         });
     </script>
 </body>
