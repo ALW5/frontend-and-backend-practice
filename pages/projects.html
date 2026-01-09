@@ -43,6 +43,16 @@
             background-color: #343a40;
             color: white;
         }
+        /* Стиль для отладочных изображений - можно удалить когда добавите свои */
+        .temp-img {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
     </style>
 </head>
 <body>
@@ -207,8 +217,10 @@
                 <!-- Project 4 -->
                 <div class="col-lg-4 col-md-6 project-item" data-category="html">
                     <div class="card project-card h-100 border-0 shadow-sm" data-bs-toggle="modal" data-bs-target="#projectModal4">
-                        <img src="https://via.placeholder.com/400x200/6c757d/ffffff?text=Лендинг" 
-                             class="card-img-top project-image" alt="Лендинг">
+                        <img src="../images/project4.jpg" 
+                             class="card-img-top project-image temp-img" 
+                             alt="Лендинг страница"
+                             onerror="this.onerror=null; this.src='https://via.placeholder.com/400x200/6c757d/ffffff?text=Лендинг'; this.classList.remove('temp-img')">
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-start mb-2">
                                 <h3 class="card-title h5 mb-0">Лендинг страница</h3>
@@ -234,8 +246,10 @@
                 <!-- Project 5 -->
                 <div class="col-lg-4 col-md-6 project-item" data-category="js">
                     <div class="card project-card h-100 border-0 shadow-sm" data-bs-toggle="modal" data-bs-target="#projectModal5">
-                        <img src="https://via.placeholder.com/400x200/198754/ffffff?text=Погода" 
-                             class="card-img-top project-image" alt="Погодное приложение">
+                        <img src="../images/project5.jpg" 
+                             class="card-img-top project-image temp-img" 
+                             alt="Погодное приложение"
+                             onerror="this.onerror=null; this.src='https://via.placeholder.com/400x200/198754/ffffff?text=Погода'; this.classList.remove('temp-img')">
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-start mb-2">
                                 <h3 class="card-title h5 mb-0">Погодное приложение</h3>
@@ -261,8 +275,10 @@
                 <!-- Project 6 -->
                 <div class="col-lg-4 col-md-6 project-item" data-category="react">
                     <div class="card project-card h-100 border-0 shadow-sm" data-bs-toggle="modal" data-bs-target="#projectModal6">
-                        <img src="https://via.placeholder.com/400x200/0d6efd/ffffff?text=Блог" 
-                             class="card-img-top project-image" alt="Блог">
+                        <img src="../images/project6.jpg" 
+                             class="card-img-top project-image temp-img" 
+                             alt="Блог платформа"
+                             onerror="this.onerror=null; this.src='https://via.placeholder.com/400x200/0d6efd/ffffff?text=Блог'; this.classList.remove('temp-img')">
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-start mb-2">
                                 <h3 class="card-title h5 mb-0">Блог платформа</h3>
@@ -357,6 +373,70 @@
                 </div>
                 <div class="modal-body">
                     <p>Приложение для управления задачами с сохранением в LocalStorage.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3 -->
+    <div class="modal fade" id="projectModal3" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Интернет-магазин</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="../images/project3.jpg" class="img-fluid rounded mb-3" alt="Интернет-магазин">
+                    <p>Прототип интернет-магазина с корзиной товаров и фильтрацией.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 4 -->
+    <div class="modal fade" id="projectModal4" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Лендинг страница</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="../images/project4.jpg" class="img-fluid rounded mb-3" alt="Лендинг">
+                    <p>Одностраничный сайт для бизнеса с анимациями и адаптивным дизайном.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 5 -->
+    <div class="modal fade" id="projectModal5" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Погодное приложение</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="../images/project5.jpg" class="img-fluid rounded mb-3" alt="Погодное приложение">
+                    <p>Приложение для просмотра погоды с использованием API и сохранением избранных городов.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 6 -->
+    <div class="modal fade" id="projectModal6" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Блог платформа</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="../images/project6.jpg" class="img-fluid rounded mb-3" alt="Блог платформа">
+                    <p>Платформа для ведения блога с авторизацией пользователей, комментариями и лайками.</p>
                 </div>
             </div>
         </div>
