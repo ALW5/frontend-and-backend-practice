@@ -91,39 +91,43 @@
         </div>
     </nav>
 
-    <!-- Основное содержимое -->
-    <main class="container my-5">
-        <!-- Секция профиля -->
-        <section class="mb-5">
-            <div class="card shadow-sm border-0">
-                <div class="card-body p-4">
-                    <div class="row align-items-center">
-                        <div class="col-md-3 text-center mb-3 mb-md-0">
-                            <!-- Блок для фотографии -->
-                            <div class="bg-secondary rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 200px; height: 200px;">
-                                <span class="text-white fs-1">Фото</span>
+        <!-- Main Content -->
+        <main id="main-content" class="container my-4 main-content">
+            <!-- Profile Section -->
+            <section class="mb-5">
+                <div class="card shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="row align-items-center">
+                            <div class="col-md-3 text-center mb-3 mb-md-0">
+                                <!-- Адаптивное изображение для занятия 16 - ИСПРАВЛЕН ПУТЬ -->
+                                <img src="images/myphoto.jpg" 
+                                     alt="Фото Манжикова Дольгана" 
+                                     class="img-fluid rounded-circle hero_photo"
+                                     width="200"
+                                     height="200"
+                                     loading="eager"
+                                     fetchpriority="high">
                             </div>
-                        </div>
-                        <div class="col-md-9">
-                            <h2 class="card-title h4 text-primary">Манжиков Дольган Саналович</h2>
-                            <p class="card-text text-muted mb-2">
-                                <i class="bi bi-bookmark-check-fill text-primary"></i>
-                                Студент группы ЭФБО-08-24
-                            </p>
-                            <p class="card-text">
-                                Факультет информационных технологий, специальность "Веб-разработка"
-                            </p>
-                            <div class="d-flex gap-2 flex-wrap">
-                                <span class="badge bg-primary">HTML/CSS</span>
-                                <span class="badge bg-success">JavaScript</span>
-                                <span class="badge bg-info">Bootstrap</span>
-                                <span class="badge bg-warning">React</span>
+                            <div class="col-md-9">
+                                <h2 class="card-title h4 text-primary">Манжиков Дольган Саналович</h2>
+                                <p class="card-text text-muted mb-2">
+                                    <i class="bi bi-bookmark-check-fill text-primary"></i>
+                                    Студент группы ЭФБО-08-24
+                                </p>
+                                <p class="card-text">
+                                    Факультет информационных технологий, специальность "Веб-разработка"
+                                </p>
+                                <div class="d-flex gap-2 flex-wrap">
+                                    <span class="badge bg-primary">HTML/CSS</span>
+                                    <span class="badge bg-success">JavaScript</span>
+                                    <span class="badge bg-info">Bootstrap</span>
+                                    <span class="badge bg-warning">React</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
         <!-- Секция "Обо мне" -->
         <section class="mb-5">
