@@ -12,13 +12,29 @@
         body {
             background-color: #f8f9fa;
         }
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+        .site-header {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
         }
-        .nav-link.active {
-            font-weight: bold;
-            color: #667eea !important;
+        /* Стили для нового меню */
+        .main-nav {
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #dee2e6;
+            padding: 0.5rem 0;
+        }
+        .main-nav .nav-link {
+            color: #495057;
+            font-weight: 500;
+            padding: 0.5rem 1.5rem;
+            border-radius: 0.25rem;
+            transition: all 0.2s ease;
+        }
+        .main-nav .nav-link:hover,
+        .main-nav .nav-link.active {
+            color: #0d6efd;
+            background-color: #e9ecef;
+        }
+        .main-nav .nav-link.active {
+            font-weight: 600;
         }
         .project-card {
             transition: transform 0.3s, box-shadow 0.3s;
@@ -36,14 +52,10 @@
             background-color: #667eea;
             color: white;
         }
-        .badge-filter {
-            cursor: pointer;
-        }
         .footer {
             background-color: #343a40;
             color: white;
         }
-        /* Стиль для отладочных изображений - можно удалить когда добавите свои */
         .temp-img {
             background: linear-gradient(45deg, #667eea, #764ba2);
             display: flex;
@@ -57,8 +69,8 @@
 </head>
 <body>
     <div class="container-fluid p-0">
-        <!-- Header -->
-        <header class="header py-4">
+        <!-- НОВАЯ ШАПКА как на главной странице -->
+        <header class="site-header text-white py-4">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col">
@@ -72,40 +84,35 @@
             </div>
         </header>
 
-        <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <!-- НОВОЕ ГОРИЗОНТАЛЬНОЕ МЕНЮ как на главной странице -->
+        <nav class="main-nav">
             <div class="container">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav mx-auto">
-                        <li class="nav-item mx-2">
-                            <a class="nav-link" href="../index.html">
-                                <i class="bi bi-house me-1"></i>Главная
-                            </a>
-                        </li>
-                        <li class="nav-item mx-2">
-                            <a class="nav-link active" href="projects.html">
-                                <i class="bi bi-folder me-1"></i>Проекты
-                            </a>
-                        </li>
-                        <li class="nav-item mx-2">
-                            <a class="nav-link" href="diary.html">
-                                <i class="bi bi-journal-text me-1"></i>Дневник
-                            </a>
-                        </li>
-                        <li class="nav-item mx-2">
-                            <a class="nav-link" href="contacts.html">
-                                <i class="bi bi-telephone me-1"></i>Контакты
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+                <ul class="nav justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">
+                            <i class="bi bi-house-door me-1"></i>Главная
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="projects.html">
+                            <i class="bi bi-folder me-1"></i>Проекты
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="diary.html">
+                            <i class="bi bi-journal-text me-1"></i>Дневник
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacts.html">
+                            <i class="bi bi-envelope me-1"></i>Контакты
+                        </a>
+                    </li>
+                </ul>
             </div>
         </nav>
 
-        <!-- Main Content -->
+        <!-- Основное содержимое (осталось без изменений) -->
         <main class="container my-5">
             <!-- Page Header -->
             <div class="row mb-5">
@@ -135,7 +142,7 @@
                 </div>
             </div>
 
-            <!-- Projects Grid -->
+            <!-- Projects Grid (осталось без изменений) -->
             <div class="row g-4" id="projectsGrid">
                 <!-- Project 1 -->
                 <div class="col-lg-4 col-md-6 project-item" data-category="html">
